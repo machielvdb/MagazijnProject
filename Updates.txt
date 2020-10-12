@@ -1,3 +1,3 @@
 12/10/2020:
 Database structuur gemaakt
-Trachten login meteen via hash te laten lopen
+Bezig aan loginsysteem, trachten wachtwoord storage en check meteen via hash te laten lopen.
