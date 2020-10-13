@@ -11,10 +11,7 @@ namespace MagazijnProject
 {
     using System;
     using System.Collections.Generic;
-    using System.IO;
-    using System.Security.Cryptography;
-    using System.Text;
-
+    
     public partial class Personeelslid
     {
         public int PersoneelslidID { get; set; }
@@ -24,7 +21,6 @@ namespace MagazijnProject
         public int ToegangID { get; set; }
         public string Wachtwoord { get; set; }
         public Nullable<System.DateTime> LaatsteLogin { get; set; }
-
         public override string ToString()
         {
             return Voornaam + " " + Achternaam;

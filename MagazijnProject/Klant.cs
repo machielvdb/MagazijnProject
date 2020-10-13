@@ -22,9 +22,14 @@ namespace MagazijnProject
         public string Bus { get; set; }
         public Nullable<int> Postcode { get; set; }
         public string Gemeente { get; set; }
-        public Nullable<int> Telefoonnummer { get; set; }
+        public string Telefoonnummer { get; set; }
         public string Email { get; set; }
         public Nullable<System.DateTime> AangemaaktOp { get; set; }
         public string Opmerking { get; set; }
+
+        public override string ToString()
+        {
+            return Voornaam + " " + Achternaam;
+        }
     }
 }

@@ -1,3 +1,8 @@
 12/10/2020:
 Database structuur gemaakt
 Bezig aan loginsysteem, trachten wachtwoord storage en check meteen via hash te laten lopen.
+
+13/10/2020:
+Database aangepast, model er een paar keer moeten uitgooien tegen dat het goed was.
+Hashing voorlopig overgeslagen, begonnen aan admin toegang van Databeheer.
+Implementatie van "Kies wachtwoord" prompt nog niet op punt, gecomment block past ID's aan door het verwijderen en hertoevoegen.

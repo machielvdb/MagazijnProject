@@ -16,7 +16,7 @@ namespace MagazijnProject
     {
         public string Leveranciernaam { get; set; }
         public int LeverancierID { get; set; }
-        public int Telefoonnummer { get; set; }
+        public string Telefoonnummer { get; set; }
         public string Email { get; set; }
         public string Straatnaam { get; set; }
         public Nullable<int> Huisnummer { get; set; }

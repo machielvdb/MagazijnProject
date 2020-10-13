@@ -15,6 +15,7 @@ namespace MagazijnProject
         public NieuweGebruiker()
         {
             InitializeComponent();
+            CenterToScreen();
         }
     }
 }

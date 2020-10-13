@@ -41,6 +41,7 @@
             this.btnDatabeheer.TabIndex = 0;
             this.btnDatabeheer.Text = "Databeheer";
             this.btnDatabeheer.UseVisualStyleBackColor = true;
+            this.btnDatabeheer.Click += new System.EventHandler(this.btnDatabeheer_Click);
             // 
             // btnOverzicht
             // 
@@ -60,7 +61,7 @@
             this.Bestellingen.Text = "Bestelling";
             this.Bestellingen.UseVisualStyleBackColor = true;
             // 
-            // Menu
+            // GebruikerMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -68,7 +69,7 @@
             this.Controls.Add(this.Bestellingen);
             this.Controls.Add(this.btnOverzicht);
             this.Controls.Add(this.btnDatabeheer);
-            this.Name = "Menu";
+            this.Name = "GebruikerMenu";
             this.Text = "Menu";
             this.ResumeLayout(false);
 

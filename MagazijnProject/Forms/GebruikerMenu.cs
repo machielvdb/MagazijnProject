@@ -19,5 +19,14 @@ namespace MagazijnProject.Forms
             CenterToScreen();
             ingelogdeGebruiker = gebruiker;
         }
+
+        private void btnDatabeheer_Click(object sender, EventArgs e)
+        {
+            if (ingelogdeGebruiker.ToegangID == 0)
+            {
+                Databeheer f = new Databeheer();
+                f.ShowDialog();
+            }
+        }
     }
 }

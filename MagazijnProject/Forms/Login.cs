@@ -22,7 +22,7 @@ namespace MagazijnProject
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            using (MagazijnEntities ctx = new MagazijnEntities())
+            using (MagazijnModelEntities ctx = new MagazijnModelEntities())
             {
                 // Lijst met alle personeelsleden ophalen om de combobox mee te vullen.
                 var personeellijst = ctx.Personeelslid.Select(x => x).ToList();
@@ -35,13 +35,21 @@ namespace MagazijnProject
         {
             bool passwordsMatch;
 
-            using (MagazijnEntities ctx = new MagazijnEntities())
+            using (MagazijnModelEntities ctx = new MagazijnModelEntities())
             {
+                // Kijken of de gebruiker voor de eerste keer inlogt, prompten om wachtwoord te kiezen indien dit het geval is.
                 var gebruiker = cbGebruikers.SelectedItem as Personeelslid;
+                bool firstLogin = string.IsNullOrEmpty(gebruiker.Wachtwoord);
                 passwordsMatch = (tbWachtwoord.Text == gebruiker.Wachtwoord);
 
+                if (firstLogin)
+                {
+                    NieuwWachtwoord f = new NieuwWachtwoord(gebruiker);
+                    f.ShowDialog();
+                }
+
                 // Indien wachtwoorden overeenkomen, controleren welk menu de gebruiker te zien krijgt.
-                if (passwordsMatch)
+                else if (passwordsMatch)
                 {
                     this.Hide();
                     Form f = new GebruikerMenu(gebruiker);
