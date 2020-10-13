@@ -33,37 +33,22 @@ namespace MagazijnProject
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            bool passwordsMatch = false;
+            bool passwordsMatch;
 
             using (MagazijnEntities ctx = new MagazijnEntities())
             {
                 var gebruiker = cbGebruikers.SelectedItem as Personeelslid;
-                var hashedWachtwoord = HashWachtwoord(tbWachtwoord.Text);
-
-                passwordsMatch = (hashedWachtwoord == gebruiker.Wachtwoord);
+                passwordsMatch = (tbWachtwoord.Text == gebruiker.Wachtwoord);
 
                 // Indien wachtwoorden overeenkomen, controleren welk menu de gebruiker te zien krijgt.
                 if (passwordsMatch)
                 {
+                    this.Hide();
                     Form f = new GebruikerMenu(gebruiker);
-                    f.Show();
+                    f.ShowDialog();
                     this.Close();
                 }
             }
-        }
-
-        // https://stackoverflow.com/questions/12416249/hashing-a-string-with-sha256 antwoord van Bjarki Heioar, 2e codeblock.
-        public static string HashWachtwoord(string stringToEncrypt)
-        {
-            var crypt = new System.Security.Cryptography.SHA256Managed();
-            var hash = new System.Text.StringBuilder();
-            byte[] crypto = crypt.ComputeHash(Encoding.UTF8.GetBytes(stringToEncrypt));
-
-            foreach (byte theByte in crypto)
-            {
-                hash.Append(theByte.ToString("x2"));
-            }
-            return hash.ToString();
         }
     }
 }

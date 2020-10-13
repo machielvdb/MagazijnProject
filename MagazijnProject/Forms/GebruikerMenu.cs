@@ -19,11 +19,5 @@ namespace MagazijnProject.Forms
             CenterToScreen();
             ingelogdeGebruiker = gebruiker;
         }
-
-        public GebruikerMenu()
-        {
-            InitializeComponent();
-            CenterToScreen();
-        }
     }
 }
