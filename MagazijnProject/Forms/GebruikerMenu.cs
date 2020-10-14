@@ -22,11 +22,10 @@ namespace MagazijnProject.Forms
 
         private void btnDatabeheer_Click(object sender, EventArgs e)
         {
-            if (ingelogdeGebruiker.ToegangID == 0)
-            {
-                Databeheer f = new Databeheer();
-                f.ShowDialog();
-            }
+            if (ingelogdeGebruiker.ToegangID != 0) return;
+
+            Databeheer f = new Databeheer();
+            f.ShowDialog();
         }
     }
 }

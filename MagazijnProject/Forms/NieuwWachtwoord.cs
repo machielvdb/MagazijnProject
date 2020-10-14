@@ -26,10 +26,12 @@ namespace MagazijnProject.Forms
             {
                 using (MagazijnDatabase ctx = new MagazijnDatabase())
                 {
-                    ctx.Personeelslid.Where(x => x.PersoneelslidID == _geselecteerdPersoneelslid.PersoneelslidID).FirstOrDefault().Wachtwoord = tbNieuwWachtwoord.Text;
-                    ctx.Personeelslid.Where(x => x.PersoneelslidID == _geselecteerdPersoneelslid.PersoneelslidID).FirstOrDefault().LaatsteLogin = DateTime.Now;
+                    var lid = ctx.Personeelslid.Single(x => x.PersoneelslidID == _geselecteerdPersoneelslid.PersoneelslidID);
+                    lid.Wachtwoord = tbNieuwWachtwoord.Text;
+                    lid.LaatsteLogin = DateTime.Now;
+
                     ctx.SaveChanges();
-                    this.Close();
+                    Close();
                 }
             }
         }

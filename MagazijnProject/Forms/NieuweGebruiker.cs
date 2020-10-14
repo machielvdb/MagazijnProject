@@ -24,9 +24,15 @@ namespace MagazijnProject
             {
                 using (MagazijnDatabase ctx = new MagazijnDatabase())
                 {
-                    ctx.Personeelslid.Add(new Personeelslid() { Voornaam = tbVoornaam.Text, Achternaam = tbAchternaam.Text, ToegangID = (int)cbToegang.SelectedValue, DatumInDienst = dtpIndienst.Value });
+                    ctx.Personeelslid.Add(new Personeelslid() 
+                    { 
+                        Voornaam = tbVoornaam.Text, 
+                        Achternaam = tbAchternaam.Text, 
+                        ToegangID = (int)cbToegang.SelectedValue, 
+                        DatumInDienst = dtpIndienst.Value
+                    });
                     ctx.SaveChanges();
-                    this.Close();
+                    Close();
                 }
             }
         }
@@ -34,10 +40,12 @@ namespace MagazijnProject
         private void NieuweGebruiker_Load(object sender, EventArgs e)
         {
             // De toegang niveau's in de combobox laden met dezelfde keys als in DB.
-            Dictionary<int, string> toegang = new Dictionary<int, string>();
-            toegang.Add(0, "Admin");
-            toegang.Add(1, "Magazijn");
-            toegang.Add(2, "Verkoper");
+            Dictionary<int, string> toegang = new Dictionary<int, string>
+            {
+                {0, "Admin"},
+                {1, "Magazijn"},
+                {2, "Verkoper"}
+            };
 
             cbToegang.DataSource = new BindingSource(toegang, null);
             cbToegang.DisplayMember = "Value";

@@ -8,5 +8,7 @@ Hashing voorlopig overgeslagen, begonnen aan admin toegang van Databeheer.
 Implementatie van "Kies wachtwoord" prompt nog niet op punt, gecomment block past ID's aan door het verwijderen en hertoevoegen.
 
 14/10/2020:
-Aanmaken van nieuwe gebruiker voor admins afgewerkt.
+Form voor het aanmaken van nieuwe gebruikers afgewerkt.
 Login aangepast, eerste login check gebeurd nu op datetime property van personeelsid.
+Nog verder zitten prutsen aan login, uiteindelijk terug gezet zoals het was.
+Begonnen met form aanmaken nieuwe producten .

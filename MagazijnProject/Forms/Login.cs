@@ -20,23 +20,12 @@ namespace MagazijnProject
             CenterToScreen();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            using (MagazijnDatabase ctx = new MagazijnDatabase())
-            {
-                // Lijst met alle personeelsleden ophalen om de combobox mee te vullen.
-                var personeellijst = ctx.Personeelslid.ToList();
-
-                cbGebruikers.DataSource = personeellijst;
-            }
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             using (MagazijnDatabase ctx = new MagazijnDatabase())
             {
                 // Kijken of de gebruiker voor de eerste keer inlogt, prompten om wachtwoord te kiezen indien dit het geval is.
-                var gebruiker = cbGebruikers.SelectedItem as Personeelslid;
+                var gebruiker = (Personeelslid)cbGebruikers.SelectedItem;
                 var firstLogin = string.IsNullOrEmpty(gebruiker.LaatsteLogin.ToString());
                 var passwordsMatch = (tbWachtwoord.Text == gebruiker.Wachtwoord);
 
@@ -52,13 +41,20 @@ namespace MagazijnProject
                     Hide();
                     Form f = new GebruikerMenu(gebruiker);
                     f.ShowDialog();
-                    var personeelsquery = ctx.Personeelslid.Where(x => x.PersoneelslidID == gebruiker.PersoneelslidID).FirstOrDefault();
-
-                    if (personeelsquery != null)
-                        personeelsquery.LaatsteLogin = DateTime.Now;
-
+                    var personeelsquery = ctx.Personeelslid.Single(
+                        x => x.PersoneelslidID == gebruiker.PersoneelslidID);
+                    personeelsquery.LaatsteLogin = DateTime.Now;
                     Close();
                 }
+            }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            using (MagazijnDatabase ctx = new MagazijnDatabase())
+            {
+                var personeelslijst = ctx.Personeelslid.ToList();
+                cbGebruikers.DataSource = personeelslijst;
             }
         }
     }
