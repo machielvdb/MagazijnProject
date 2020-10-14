@@ -39,9 +39,19 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Konscious.Security.Cryptography.Argon2, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Konscious.Security.Cryptography.Argon2.1.2.1\lib\net46\Konscious.Security.Cryptography.Argon2.dll</HintPath>
+    </Reference>
+    <Reference Include="Konscious.Security.Cryptography.Blake2, Version=1.0.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Konscious.Security.Cryptography.Blake2.1.0.9\lib\net46\Konscious.Security.Cryptography.Blake2.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -55,26 +65,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bestelling.cs">
-      <DependentUpon>MagazijnEntity.tt</DependentUpon>
+    <Compile Include="Access.cs">
+      <DependentUpon>WarehouseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="BestellingProduct.cs">
-      <DependentUpon>MagazijnEntity.tt</DependentUpon>
+    <Compile Include="Category.cs">
+      <DependentUpon>WarehouseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Categorie.cs">
-      <DependentUpon>MagazijnEntity.tt</DependentUpon>
+    <Compile Include="Customer.cs">
+      <DependentUpon>WarehouseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Databeheer.cs">
+    <Compile Include="Employee.cs">
+      <DependentUpon>WarehouseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DataManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Databeheer.Designer.cs">
-      <DependentUpon>Databeheer.cs</DependentUpon>
+    <Compile Include="Forms\DataManagement.Designer.cs">
+      <DependentUpon>DataManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\DatabeheerOverzicht.cs">
+    <Compile Include="Forms\DataManagementOverview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\DatabeheerOverzicht.Designer.cs">
-      <DependentUpon>DatabeheerOverzicht.cs</DependentUpon>
+    <Compile Include="Forms\DataManagementOverview.Designer.cs">
+      <DependentUpon>DataManagementOverview.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
@@ -82,79 +95,92 @@
     <Compile Include="Forms\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\GebruikerMenu.cs">
+    <Compile Include="Forms\UserMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\GebruikerMenu.Designer.cs">
-      <DependentUpon>GebruikerMenu.cs</DependentUpon>
+    <Compile Include="Forms\UserMenu.Designer.cs">
+      <DependentUpon>UserMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\NieuweGebruiker.cs">
+    <Compile Include="Forms\NewUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\NieuweGebruiker.Designer.cs">
-      <DependentUpon>NieuweGebruiker.cs</DependentUpon>
+    <Compile Include="Forms\NewUser.Designer.cs">
+      <DependentUpon>NewUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\NieuwProduct.cs">
+    <Compile Include="Forms\NewProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\NieuwProduct.Designer.cs">
-      <DependentUpon>NieuwProduct.cs</DependentUpon>
+    <Compile Include="Forms\NewProduct.Designer.cs">
+      <DependentUpon>NewProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\NieuwWachtwoord.cs">
+    <Compile Include="Forms\NewPassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\NieuwWachtwoord.Designer.cs">
-      <DependentUpon>NieuwWachtwoord.cs</DependentUpon>
+    <Compile Include="Forms\NewPassword.Designer.cs">
+      <DependentUpon>NewPassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="Klant.cs">
-      <DependentUpon>MagazijnEntity.tt</DependentUpon>
+    <Compile Include="Hashing.cs" />
+    <Compile Include="Login.cs">
+      <DependentUpon>WarehouseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Leverancier.cs">
-      <DependentUpon>MagazijnEntity.tt</DependentUpon>
+    <Compile Include="Month.cs">
+      <DependentUpon>WarehouseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="MagazijnEntity.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MagazijnEntity.Context.tt</DependentUpon>
+    <Compile Include="Order.cs">
+      <DependentUpon>WarehouseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="MagazijnEntity.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MagazijnEntity.tt</DependentUpon>
+    <Compile Include="OrderProduct.cs">
+      <DependentUpon>WarehouseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="MagazijnEntity.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MagazijnEntity.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Personeelslid.cs">
-      <DependentUpon>MagazijnEntity.tt</DependentUpon>
+    <Compile Include="Payslip.cs">
+      <DependentUpon>WarehouseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
-      <DependentUpon>MagazijnEntity.tt</DependentUpon>
+      <DependentUpon>WarehouseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\Databeheer.resx">
-      <DependentUpon>Databeheer.cs</DependentUpon>
+    <Compile Include="Supplier.cs">
+      <DependentUpon>WarehouseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>WarehouseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WarehouseModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WarehouseModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WarehouseModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WarehouseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WarehouseModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WarehouseModel.edmx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\DataManagement.resx">
+      <DependentUpon>DataManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DatabeheerOverzicht.resx">
-      <DependentUpon>DatabeheerOverzicht.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\DataManagementOverview.resx">
+      <DependentUpon>DataManagementOverview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\GebruikerMenu.resx">
-      <DependentUpon>GebruikerMenu.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\UserMenu.resx">
+      <DependentUpon>UserMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\NieuweGebruiker.resx">
-      <DependentUpon>NieuweGebruiker.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\NewUser.resx">
+      <DependentUpon>NewUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\NieuwProduct.resx">
-      <DependentUpon>NieuwProduct.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\NewProduct.resx">
+      <DependentUpon>NewProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\NieuwWachtwoord.resx">
-      <DependentUpon>NieuwWachtwoord.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\NewPassword.resx">
+      <DependentUpon>NewPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -165,13 +191,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="MagazijnEntity.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MagazijnEntity.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="MagazijnEntity.edmx.diagram">
-      <DependentUpon>MagazijnEntity.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -182,6 +201,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EntityDeploy Include="WarehouseModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WarehouseModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="WarehouseModel.edmx.diagram">
+      <DependentUpon>WarehouseModel.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -190,15 +216,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MagazijnEntity.Context.tt">
+    <Content Include="WarehouseModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MagazijnEntity.edmx</DependentUpon>
-      <LastGenOutput>MagazijnEntity.Context.cs</LastGenOutput>
+      <DependentUpon>WarehouseModel.edmx</DependentUpon>
+      <LastGenOutput>WarehouseModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="MagazijnEntity.tt">
+    <Content Include="WarehouseModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MagazijnEntity.edmx</DependentUpon>
-      <LastGenOutput>MagazijnEntity.cs</LastGenOutput>
+      <DependentUpon>WarehouseModel.edmx</DependentUpon>
+      <LastGenOutput>WarehouseModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

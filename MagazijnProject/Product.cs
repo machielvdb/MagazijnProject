@@ -14,13 +14,24 @@ namespace MagazijnProject
     
     public partial class Product
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Product()
+        {
+            this.OrderProducts = new HashSet<OrderProduct>();
+        }
+    
         public int ProductID { get; set; }
-        public string Naam { get; set; }
+        public string Name { get; set; }
         public decimal Inkoopprijs { get; set; }
-        public decimal Marge { get; set; }
-        public decimal Eenheid { get; set; }
-        public int BTW { get; set; }
-        public int LeverancierID { get; set; }
-        public int CategorieID { get; set; }
+        public decimal Margin { get; set; }
+        public int Unit { get; set; }
+        public int Tax { get; set; }
+        public int CategoryID { get; set; }
+        public int SupplierID { get; set; }
+    
+        public virtual Category Category { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OrderProduct> OrderProducts { get; set; }
+        public virtual Supplier Supplier { get; set; }
     }
 }

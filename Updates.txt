@@ -11,4 +11,5 @@ Implementatie van "Kies wachtwoord" prompt nog niet op punt, gecomment block pas
 Form voor het aanmaken van nieuwe gebruikers afgewerkt.
 Login aangepast, eerste login check gebeurd nu op datetime property van personeelsid.
 Nog verder zitten prutsen aan login, uiteindelijk terug gezet zoals het was.
-Begonnen met form aanmaken nieuwe producten .
+
+Database volledig herzien, alles naar het engels om aan het zetten. Relationships gelegd in MSSQL. Extra tabellen en properties toegevoegd waar later mits tijd over mee gewerkt kan worden.
