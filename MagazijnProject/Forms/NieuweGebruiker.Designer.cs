@@ -32,10 +32,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.tbVoornaam = new System.Windows.Forms.TextBox();
+            this.tbAchternaam = new System.Windows.Forms.TextBox();
+            this.dtpIndienst = new System.Windows.Forms.DateTimePicker();
+            this.cbToegang = new System.Windows.Forms.ComboBox();
             this.btnAanmaken = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -75,34 +75,35 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Toegang: ";
             // 
-            // textBox1
+            // tbVoornaam
             // 
-            this.textBox1.Location = new System.Drawing.Point(93, 6);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 20);
-            this.textBox1.TabIndex = 5;
+            this.tbVoornaam.Location = new System.Drawing.Point(93, 6);
+            this.tbVoornaam.Name = "tbVoornaam";
+            this.tbVoornaam.Size = new System.Drawing.Size(200, 20);
+            this.tbVoornaam.TabIndex = 5;
             // 
-            // textBox2
+            // tbAchternaam
             // 
-            this.textBox2.Location = new System.Drawing.Point(93, 30);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(200, 20);
-            this.textBox2.TabIndex = 6;
+            this.tbAchternaam.Location = new System.Drawing.Point(93, 30);
+            this.tbAchternaam.Name = "tbAchternaam";
+            this.tbAchternaam.Size = new System.Drawing.Size(200, 20);
+            this.tbAchternaam.TabIndex = 6;
             // 
-            // dateTimePicker1
+            // dtpIndienst
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(93, 79);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 7;
+            this.dtpIndienst.Location = new System.Drawing.Point(93, 79);
+            this.dtpIndienst.Name = "dtpIndienst";
+            this.dtpIndienst.Size = new System.Drawing.Size(200, 20);
+            this.dtpIndienst.TabIndex = 7;
             // 
-            // comboBox1
+            // cbToegang
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(93, 54);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(201, 21);
-            this.comboBox1.TabIndex = 8;
+            this.cbToegang.FormattingEnabled = true;
+            this.cbToegang.Location = new System.Drawing.Point(93, 54);
+            this.cbToegang.Name = "cbToegang";
+            this.cbToegang.Size = new System.Drawing.Size(201, 21);
+            this.cbToegang.Sorted = true;
+            this.cbToegang.TabIndex = 8;
             // 
             // btnAanmaken
             // 
@@ -112,6 +113,7 @@
             this.btnAanmaken.TabIndex = 9;
             this.btnAanmaken.Text = "Aanmaken";
             this.btnAanmaken.UseVisualStyleBackColor = true;
+            this.btnAanmaken.Click += new System.EventHandler(this.btnAanmaken_Click);
             // 
             // NieuweGebruiker
             // 
@@ -119,16 +121,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(315, 136);
             this.Controls.Add(this.btnAanmaken);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.cbToegang);
+            this.Controls.Add(this.dtpIndienst);
+            this.Controls.Add(this.tbAchternaam);
+            this.Controls.Add(this.tbVoornaam);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "NieuweGebruiker";
             this.Text = "Nieuwe gebruiker";
+            this.Load += new System.EventHandler(this.NieuweGebruiker_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,10 +143,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox tbVoornaam;
+        private System.Windows.Forms.TextBox tbAchternaam;
+        private System.Windows.Forms.DateTimePicker dtpIndienst;
+        private System.Windows.Forms.ComboBox cbToegang;
         private System.Windows.Forms.Button btnAanmaken;
     }
 }

@@ -13,10 +13,10 @@ namespace MagazijnProject
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MagazijnModelEntities : DbContext
+    public partial class MagazijnDatabase : DbContext
     {
-        public MagazijnModelEntities()
-            : base("name=MagazijnModelEntities")
+        public MagazijnDatabase()
+            : base("name=MagazijnDatabase")
         {
         }
     

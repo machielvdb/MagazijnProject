@@ -79,7 +79,7 @@
           </Key>
           <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Naam" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Inkoopprijs" Type="int" Nullable="false" />
+          <Property Name="Inkoopprijs" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Marge" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Eenheid" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="BTW" Type="int" Nullable="false" />
@@ -174,14 +174,14 @@
           </Key>
           <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Naam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Inkoopprijs" Type="Int32" Nullable="false" />
+          <Property Name="Inkoopprijs" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Marge" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Eenheid" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="BTW" Type="Int32" Nullable="false" />
           <Property Name="LeverancierID" Type="Int32" Nullable="false" />
           <Property Name="CategorieID" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="MagazijnModelEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MagazijnDatabase" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Bestelling" EntityType="Self.Bestelling" />
           <EntitySet Name="BestellingProduct" EntityType="Self.BestellingProduct" />
           <EntitySet Name="Categorie" EntityType="Self.Categorie" />
@@ -195,7 +195,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MagazijnModelStoreContainer" CdmEntityContainer="MagazijnModelEntities">
+        <EntityContainerMapping StorageEntityContainer="MagazijnModelStoreContainer" CdmEntityContainer="MagazijnDatabase">
           <EntitySetMapping Name="Bestelling">
             <EntityTypeMapping TypeName="MagazijnModel.Bestelling">
               <MappingFragment StoreEntitySet="Bestelling">

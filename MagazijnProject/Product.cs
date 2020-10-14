@@ -16,7 +16,7 @@ namespace MagazijnProject
     {
         public int ProductID { get; set; }
         public string Naam { get; set; }
-        public int Inkoopprijs { get; set; }
+        public decimal Inkoopprijs { get; set; }
         public decimal Marge { get; set; }
         public decimal Eenheid { get; set; }
         public int BTW { get; set; }

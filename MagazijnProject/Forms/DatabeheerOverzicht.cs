@@ -22,22 +22,23 @@ namespace MagazijnProject.Forms
 
         private void DatabeheerOverzicht_Load(object sender, EventArgs e)
         {
-            using (MagazijnModelEntities ctx = new MagazijnModelEntities())
+            // Naar gelang keuze in DatabeheerOverzicht correcte objecten binden aan de listbox.
+            using (MagazijnDatabase ctx = new MagazijnDatabase())
             {
                 switch (_dataCategorie)
                 {
                     case "Personeel":
-                        var personeellijst = ctx.Personeelslid.Select(x => x).ToList();
+                        var personeellijst = ctx.Personeelslid.ToList();
                         lbObjecten.DataSource = personeellijst;
                         break;
                     case "Producten":
-                        var productlijst = ctx.Product.Select(x => x).ToList();
+                        var productlijst = ctx.Product.ToList();
                         lbObjecten.DataSource = productlijst;
                         lbObjecten.DisplayMember = "Naam";
                         lbObjecten.ValueMember = "ProductID";
                         break;
                     case "Leveranciers":
-                        var leverancierlijst = ctx.Leverancier.Select(x => x).ToList();
+                        var leverancierlijst = ctx.Leverancier.ToList();
                         lbObjecten.DataSource = leverancierlijst;
                         lbObjecten.DisplayMember = "Leveranciernaam";
                         lbObjecten.ValueMember = "LeverancierID";
@@ -52,19 +53,27 @@ namespace MagazijnProject.Forms
 
         private void btnNieuw_Click(object sender, EventArgs e)
         {
+            // Naar gelang keuze in DatabeheerOverzicht correcte form oproepen.
             switch (_dataCategorie)
             {
                 case "Personeel":
-                    NieuweGebruiker f = new NieuweGebruiker();
-                    f.ShowDialog();
+                    NieuweGebruiker ng = new NieuweGebruiker();
+                    ng.ShowDialog();
                     break;
                 case "Producten":
+                    NieuwProduct np = new NieuwProduct();
+                    np.ShowDialog();
                     break;
                 case "Leveranciers":
                     break;
                 case "Klanten":
                     break;
             }
+        }
+
+        private void btnWijzig_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

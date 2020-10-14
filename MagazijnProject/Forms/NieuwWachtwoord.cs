@@ -24,17 +24,12 @@ namespace MagazijnProject.Forms
         {
             if (tbBevestigWachtwoord.Text == tbNieuwWachtwoord.Text)
             {
-                using (MagazijnModelEntities ctx = new MagazijnModelEntities())
+                using (MagazijnDatabase ctx = new MagazijnDatabase())
                 {
-                    ctx.Personeelslid.Where(x => x == _geselecteerdPersoneelslid).Select(p => p.Wachtwoord == tbNieuwWachtwoord.Text);
+                    ctx.Personeelslid.Where(x => x.PersoneelslidID == _geselecteerdPersoneelslid.PersoneelslidID).FirstOrDefault().Wachtwoord = tbNieuwWachtwoord.Text;
+                    ctx.Personeelslid.Where(x => x.PersoneelslidID == _geselecteerdPersoneelslid.PersoneelslidID).FirstOrDefault().LaatsteLogin = DateTime.Now;
                     ctx.SaveChanges();
-
-                    /*
-                    ctx.Personeelslid.RemoveRange(ctx.Personeelslid.Where(p => p.PersoneelslidID == _geselecteerdPersoneelslid.PersoneelslidID));
-                    _geselecteerdPersoneelslid.Wachtwoord = tbBevestigWachtwoord.Text;
-                    ctx.Personeelslid.Add(_geselecteerdPersoneelslid);
-                    ctx.SaveChanges();
-                    */
+                    this.Close();
                 }
             }
         }

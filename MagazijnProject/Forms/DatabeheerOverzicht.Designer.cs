@@ -53,6 +53,7 @@
             this.btnWijzig.TabIndex = 12;
             this.btnWijzig.Text = "Wijzig";
             this.btnWijzig.UseVisualStyleBackColor = true;
+            this.btnWijzig.Click += new System.EventHandler(this.btnWijzig_Click);
             // 
             // btnNieuw
             // 

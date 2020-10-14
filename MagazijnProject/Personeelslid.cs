@@ -21,9 +21,8 @@ namespace MagazijnProject
         public int ToegangID { get; set; }
         public string Wachtwoord { get; set; }
         public Nullable<System.DateTime> LaatsteLogin { get; set; }
-        public override string ToString()
-        {
-            return Voornaam + " " + Achternaam;
-        }
+
+        // Full 
+        public string VolledigeNaam() => $"{Voornaam} {Achternaam}"; 
     }
 }

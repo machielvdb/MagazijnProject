@@ -17,5 +17,32 @@ namespace MagazijnProject
             InitializeComponent();
             CenterToScreen();
         }
+
+        private void btnAanmaken_Click(object sender, EventArgs e)
+        {
+            if (tbVoornaam.Text != string.Empty || tbAchternaam.Text != string.Empty)
+            {
+                using (MagazijnDatabase ctx = new MagazijnDatabase())
+                {
+                    ctx.Personeelslid.Add(new Personeelslid() { Voornaam = tbVoornaam.Text, Achternaam = tbAchternaam.Text, ToegangID = (int)cbToegang.SelectedValue, DatumInDienst = dtpIndienst.Value });
+                    ctx.SaveChanges();
+                    this.Close();
+                }
+            }
+        }
+
+        private void NieuweGebruiker_Load(object sender, EventArgs e)
+        {
+            // De toegang niveau's in de combobox laden met dezelfde keys als in DB.
+            Dictionary<int, string> toegang = new Dictionary<int, string>();
+            toegang.Add(0, "Admin");
+            toegang.Add(1, "Magazijn");
+            toegang.Add(2, "Verkoper");
+
+            cbToegang.DataSource = new BindingSource(toegang, null);
+            cbToegang.DisplayMember = "Value";
+            cbToegang.ValueMember = "Key";
+            cbToegang.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
     }
 }
