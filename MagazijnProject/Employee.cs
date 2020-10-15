@@ -38,7 +38,6 @@ namespace MagazijnProject
         public virtual ICollection<Order> Orders { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Payslip> Payslips { get; set; }
-
         public string FullName
         {
             get

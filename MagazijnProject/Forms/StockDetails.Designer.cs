@@ -34,8 +34,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbMargin = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.tbUnit = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -105,26 +103,10 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Margin:";
             // 
-            // tbUnit
-            // 
-            this.tbUnit.Location = new System.Drawing.Point(89, 84);
-            this.tbUnit.Name = "tbUnit";
-            this.tbUnit.Size = new System.Drawing.Size(121, 20);
-            this.tbUnit.TabIndex = 7;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 87);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Unit price:";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 113);
+            this.label5.Location = new System.Drawing.Point(12, 87);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(28, 13);
             this.label5.TabIndex = 8;
@@ -133,7 +115,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 139);
+            this.label6.Location = new System.Drawing.Point(12, 113);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(52, 13);
             this.label6.TabIndex = 10;
@@ -142,7 +124,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 165);
+            this.label7.Location = new System.Drawing.Point(12, 139);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(48, 13);
             this.label7.TabIndex = 12;
@@ -150,7 +132,7 @@
             // 
             // tbAmount
             // 
-            this.tbAmount.Location = new System.Drawing.Point(324, 51);
+            this.tbAmount.Location = new System.Drawing.Point(324, 58);
             this.tbAmount.Name = "tbAmount";
             this.tbAmount.Size = new System.Drawing.Size(121, 20);
             this.tbAmount.TabIndex = 17;
@@ -158,7 +140,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(224, 54);
+            this.label9.Location = new System.Drawing.Point(224, 61);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(46, 13);
             this.label9.TabIndex = 16;
@@ -166,7 +148,7 @@
             // 
             // tbAmountAvailable
             // 
-            this.tbAmountAvailable.Location = new System.Drawing.Point(324, 77);
+            this.tbAmountAvailable.Location = new System.Drawing.Point(324, 84);
             this.tbAmountAvailable.Name = "tbAmountAvailable";
             this.tbAmountAvailable.Size = new System.Drawing.Size(121, 20);
             this.tbAmountAvailable.TabIndex = 19;
@@ -174,7 +156,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(224, 106);
+            this.label10.Location = new System.Drawing.Point(224, 113);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(46, 13);
             this.label10.TabIndex = 18;
@@ -182,7 +164,7 @@
             // 
             // tbOrder
             // 
-            this.tbOrder.Location = new System.Drawing.Point(324, 103);
+            this.tbOrder.Location = new System.Drawing.Point(324, 110);
             this.tbOrder.Name = "tbOrder";
             this.tbOrder.Size = new System.Drawing.Size(121, 20);
             this.tbOrder.TabIndex = 21;
@@ -190,7 +172,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(224, 132);
+            this.label11.Location = new System.Drawing.Point(224, 139);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(70, 13);
             this.label11.TabIndex = 20;
@@ -198,7 +180,7 @@
             // 
             // tbBackorder
             // 
-            this.tbBackorder.Location = new System.Drawing.Point(324, 129);
+            this.tbBackorder.Location = new System.Drawing.Point(324, 136);
             this.tbBackorder.Name = "tbBackorder";
             this.tbBackorder.Size = new System.Drawing.Size(121, 20);
             this.tbBackorder.TabIndex = 23;
@@ -206,7 +188,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(224, 80);
+            this.label12.Location = new System.Drawing.Point(224, 87);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(91, 13);
             this.label12.TabIndex = 22;
@@ -226,7 +208,7 @@
             // cbTax
             // 
             this.cbTax.FormattingEnabled = true;
-            this.cbTax.Location = new System.Drawing.Point(89, 110);
+            this.cbTax.Location = new System.Drawing.Point(89, 84);
             this.cbTax.Name = "cbTax";
             this.cbTax.Size = new System.Drawing.Size(121, 21);
             this.cbTax.TabIndex = 25;
@@ -234,7 +216,7 @@
             // cbCategory
             // 
             this.cbCategory.FormattingEnabled = true;
-            this.cbCategory.Location = new System.Drawing.Point(89, 136);
+            this.cbCategory.Location = new System.Drawing.Point(89, 110);
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(121, 21);
             this.cbCategory.TabIndex = 26;
@@ -249,6 +231,7 @@
             this.rbYes.TabStop = true;
             this.rbYes.Text = "Yes";
             this.rbYes.UseVisualStyleBackColor = true;
+            this.rbYes.CheckedChanged += new System.EventHandler(this.rbYes_CheckedChanged);
             // 
             // rbNo
             // 
@@ -263,17 +246,18 @@
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(227, 160);
+            this.btnConfirm.Location = new System.Drawing.Point(324, 162);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(218, 23);
+            this.btnConfirm.Size = new System.Drawing.Size(121, 23);
             this.btnConfirm.TabIndex = 27;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // cbSupplier
             // 
             this.cbSupplier.FormattingEnabled = true;
-            this.cbSupplier.Location = new System.Drawing.Point(89, 162);
+            this.cbSupplier.Location = new System.Drawing.Point(89, 136);
             this.cbSupplier.Name = "cbSupplier";
             this.cbSupplier.Size = new System.Drawing.Size(121, 21);
             this.cbSupplier.TabIndex = 28;
@@ -299,8 +283,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.tbUnit);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.tbMargin);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbCost);
@@ -325,8 +307,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbMargin;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbUnit;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;

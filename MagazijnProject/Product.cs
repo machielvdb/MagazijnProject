@@ -24,7 +24,6 @@ namespace MagazijnProject
         public string Name { get; set; }
         public decimal Cost { get; set; }
         public decimal Margin { get; set; }
-        public int Unit { get; set; }
         public int Tax { get; set; }
         public int CategoryID { get; set; }
         public int SupplierID { get; set; }
