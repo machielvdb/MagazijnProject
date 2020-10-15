@@ -30,11 +30,12 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.tbWachtwoord = new System.Windows.Forms.TextBox();
+            this.tbPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.cbUsers = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cbDepartment = new System.Windows.Forms.ComboBox();
+            this.btnNew = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -55,13 +56,13 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Password:";
             // 
-            // tbWachtwoord
+            // tbPassword
             // 
-            this.tbWachtwoord.Location = new System.Drawing.Point(90, 60);
-            this.tbWachtwoord.Name = "tbWachtwoord";
-            this.tbWachtwoord.Size = new System.Drawing.Size(223, 20);
-            this.tbWachtwoord.TabIndex = 3;
-            this.tbWachtwoord.UseSystemPasswordChar = true;
+            this.tbPassword.Location = new System.Drawing.Point(90, 60);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(223, 20);
+            this.tbPassword.TabIndex = 3;
+            this.tbPassword.UseSystemPasswordChar = true;
             // 
             // btnLogin
             // 
@@ -75,6 +76,7 @@
             // 
             // cbUsers
             // 
+            this.cbUsers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbUsers.FormattingEnabled = true;
             this.cbUsers.Location = new System.Drawing.Point(90, 33);
             this.cbUsers.Name = "cbUsers";
@@ -92,6 +94,7 @@
             // 
             // cbDepartment
             // 
+            this.cbDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDepartment.FormattingEnabled = true;
             this.cbDepartment.Location = new System.Drawing.Point(90, 6);
             this.cbDepartment.Name = "cbDepartment";
@@ -99,16 +102,27 @@
             this.cbDepartment.TabIndex = 7;
             this.cbDepartment.SelectedIndexChanged += new System.EventHandler(this.cbDepartment_SelectedIndexChanged);
             // 
+            // btnNew
+            // 
+            this.btnNew.Location = new System.Drawing.Point(13, 115);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(301, 23);
+            this.btnNew.TabIndex = 8;
+            this.btnNew.Text = "New";
+            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(325, 118);
+            this.ClientSize = new System.Drawing.Size(325, 146);
+            this.Controls.Add(this.btnNew);
             this.Controls.Add(this.cbDepartment);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbUsers);
             this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.tbWachtwoord);
+            this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Login";
@@ -123,11 +137,12 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbWachtwoord;
+        private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.ComboBox cbUsers;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbDepartment;
+        private System.Windows.Forms.Button btnNew;
     }
 }
 

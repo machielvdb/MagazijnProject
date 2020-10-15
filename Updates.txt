@@ -13,3 +13,5 @@ Login aangepast, eerste login check gebeurd nu op datetime property van personee
 Nog verder zitten prutsen aan login, uiteindelijk terug gezet zoals het was.
 
 Database volledig herzien, alles naar het engels om aan het zetten. Relationships gelegd in MSSQL. Extra tabellen en properties toegevoegd waar later mits tijd over mee gewerkt kan worden.
+
+Login en hashing bijna af, passwoordcheck met hashing nog niet correct.

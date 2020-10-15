@@ -2,30 +2,55 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Validation;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MagazijnProject
+namespace MagazijnProject.Forms
 {
-    public partial class NieuweGebruiker : Form
+    public partial class NewUser : Form
     {
-        public NieuweGebruiker()
+        public NewUser()
         {
             InitializeComponent();
             CenterToScreen();
         }
 
-        private void btnAanmaken_Click(object sender, EventArgs e)
+        private void btnCreate_Click(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(tbName.Text) || !string.IsNullOrEmpty(tbSurname.Text))
+            {
+                Employee newEmployee = new Employee
+                {
+                    Firstname = tbName.Text,
+                    Lastname = tbSurname.Text,
+                    Password = string.Empty,
+                    AccessID = (int)cbDepartment.SelectedValue,
+                    StartingSalary = int.Parse(tbStartingSalary.Text),
+                    EmploymentDate = dtpEmployment.Value
+                };
 
+                using (WarehouseEntities ctx = new WarehouseEntities())
+                {
+                    ctx.Employees.Add(newEmployee);
+                    ctx.SaveChanges();
+                    Close();
+                }
+            }
         }
 
-        private void NieuweGebruiker_Load(object sender, EventArgs e)
+        private void NewUser_Load(object sender, EventArgs e)
         {
-
+            using (var ctx = new WarehouseEntities())
+            {
+                var accesslist = ctx.Accesses.ToList();
+                cbDepartment.DisplayMember = "AccessName";
+                cbDepartment.ValueMember = "AccessID";
+                cbDepartment.DataSource = accesslist;
+            }
         }
     }
 }

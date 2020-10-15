@@ -11,8 +11,7 @@ namespace MagazijnProject
 {
     using System;
     using System.Collections.Generic;
-    using System.Threading;
-
+    
     public partial class Employee
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -28,8 +27,9 @@ namespace MagazijnProject
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public System.DateTime EmploymentDate { get; set; }
-        public string Password { get; set; }
         public decimal StartingSalary { get; set; }
+        public string Password { get; set; }
+        public string Salt { get; set; }
     
         public virtual Access Access { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

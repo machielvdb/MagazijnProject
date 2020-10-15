@@ -33,5 +33,15 @@ namespace MagazijnProject
             var newHash = HashPassword(password, salt);
             return hash.SequenceEqual(newHash);
         }
+
+        public string GetHashString(byte[] hash)
+        {
+            return Convert.ToBase64String(hash);
+        }
+
+        public byte[] GetHashBytes(string hash)
+        {
+            return Convert.FromBase64String(hash);
+        }
     }
 }

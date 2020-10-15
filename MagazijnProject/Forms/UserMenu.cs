@@ -15,12 +15,6 @@ namespace MagazijnProject.Forms
         public UserMenu()
         {
             InitializeComponent();
-            CenterToScreen();
-        }
-
-        private void btnDatabeheer_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

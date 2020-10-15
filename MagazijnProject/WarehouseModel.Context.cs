@@ -33,9 +33,9 @@ namespace MagazijnProject
         public virtual DbSet<Month> Months { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<OrderProduct> OrderProducts { get; set; }
+        public virtual DbSet<Payslip> Payslips { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<Payslip> Payslips { get; set; }
     }
 }

@@ -45,8 +45,9 @@
           <Property Name="Firstname" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Lastname" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="EmploymentDate" Type="date" Nullable="false" />
-          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="StartingSalary" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Salt" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Login">
           <Key>
@@ -81,20 +82,11 @@
           <Property Name="OrderID" Type="int" Nullable="false" />
           <Property Name="ProductID" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'Warehouse.dbo.Payslip' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Payslip">
           <Key>
             <PropertyRef Name="PayslipID" />
-            <PropertyRef Name="EmployeeID" />
-            <PropertyRef Name="MonthID" />
-            <PropertyRef Name="Seniority" />
-            <PropertyRef Name="SocialSecurity" />
-            <PropertyRef Name="WithholdingTax" />
-            <PropertyRef Name="Gross" />
-            <PropertyRef Name="Net" />
           </Key>
-          <Property Name="PayslipID" Type="int" Nullable="false" />
+          <Property Name="PayslipID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="EmployeeID" Type="int" Nullable="false" />
           <Property Name="MonthID" Type="int" Nullable="false" />
           <Property Name="Seniority" Type="decimal" Precision="18" Scale="2" Nullable="false" />
@@ -281,21 +273,10 @@ warning 6002: The table/view 'Warehouse.dbo.Payslip' does not have a primary key
           <EntitySet Name="Month" EntityType="Self.Month" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderProduct" EntityType="Self.OrderProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payslip" EntityType="Self.Payslip" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Payslip" EntityType="Self.Payslip" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Payslip].[PayslipID] AS [PayslipID], 
-    [Payslip].[EmployeeID] AS [EmployeeID], 
-    [Payslip].[MonthID] AS [MonthID], 
-    [Payslip].[Seniority] AS [Seniority], 
-    [Payslip].[SocialSecurity] AS [SocialSecurity], 
-    [Payslip].[WithholdingTax] AS [WithholdingTax], 
-    [Payslip].[Gross] AS [Gross], 
-    [Payslip].[Net] AS [Net]
-    FROM [dbo].[Payslip] AS [Payslip]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_Employee_Access" Association="Self.FK_Employee_Access">
             <End Role="Access" EntitySet="Access" />
             <End Role="Employee" EntitySet="Employee" />
@@ -389,8 +370,9 @@ warning 6002: The table/view 'Warehouse.dbo.Payslip' does not have a primary key
           <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="EmploymentDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="StartingSalary" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Salt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Access" Relationship="Self.FK_Employee_Access" FromRole="Employee" ToRole="Access" />
           <NavigationProperty Name="Logins" Relationship="Self.FK_Login_Employee" FromRole="Employee" ToRole="Login" />
           <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Employee" FromRole="Employee" ToRole="Order" />
@@ -437,6 +419,21 @@ warning 6002: The table/view 'Warehouse.dbo.Payslip' does not have a primary key
           <NavigationProperty Name="Order" Relationship="Self.FK_OrderProduct_Order" FromRole="OrderProduct" ToRole="Order" />
           <NavigationProperty Name="Product" Relationship="Self.FK_OrderProduct_Product" FromRole="OrderProduct" ToRole="Product" />
         </EntityType>
+        <EntityType Name="Payslip">
+          <Key>
+            <PropertyRef Name="PayslipID" />
+          </Key>
+          <Property Name="PayslipID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="MonthID" Type="Int32" Nullable="false" />
+          <Property Name="Seniority" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="SocialSecurity" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="WithholdingTax" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Gross" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Net" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Payslip_Employee" FromRole="Payslip" ToRole="Employee" />
+          <NavigationProperty Name="Month" Relationship="Self.FK_Payslip_Month" FromRole="Payslip" ToRole="Month" />
+        </EntityType>
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="ProductID" />
@@ -478,28 +475,6 @@ warning 6002: The table/view 'Warehouse.dbo.Payslip' does not have a primary key
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="Payslip">
-          <Key>
-            <PropertyRef Name="PayslipID" />
-            <PropertyRef Name="EmployeeID" />
-            <PropertyRef Name="MonthID" />
-            <PropertyRef Name="Seniority" />
-            <PropertyRef Name="SocialSecurity" />
-            <PropertyRef Name="WithholdingTax" />
-            <PropertyRef Name="Gross" />
-            <PropertyRef Name="Net" />
-          </Key>
-          <Property Name="PayslipID" Type="Int32" Nullable="false" />
-          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
-          <Property Name="MonthID" Type="Int32" Nullable="false" />
-          <Property Name="Seniority" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="SocialSecurity" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="WithholdingTax" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="Gross" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="Net" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK_Payslip_Employee" FromRole="Payslip" ToRole="Employee" />
-          <NavigationProperty Name="Month" Relationship="Self.FK_Payslip_Month" FromRole="Payslip" ToRole="Month" />
         </EntityType>
         <Association Name="FK_Employee_Access">
           <End Role="Access" Type="Self.Access" Multiplicity="1" />
@@ -642,10 +617,10 @@ warning 6002: The table/view 'Warehouse.dbo.Payslip' does not have a primary key
           <EntitySet Name="Months" EntityType="Self.Month" />
           <EntitySet Name="Orders" EntityType="Self.Order" />
           <EntitySet Name="OrderProducts" EntityType="Self.OrderProduct" />
+          <EntitySet Name="Payslips" EntityType="Self.Payslip" />
           <EntitySet Name="Products" EntityType="Self.Product" />
           <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <EntitySet Name="Payslips" EntityType="Self.Payslip" />
           <AssociationSet Name="FK_Employee_Access" Association="Self.FK_Employee_Access">
             <End Role="Access" EntitySet="Accesses" />
             <End Role="Employee" EntitySet="Employees" />
@@ -739,8 +714,9 @@ warning 6002: The table/view 'Warehouse.dbo.Payslip' does not have a primary key
                 <ScalarProperty Name="Firstname" ColumnName="Firstname" />
                 <ScalarProperty Name="Lastname" ColumnName="Lastname" />
                 <ScalarProperty Name="EmploymentDate" ColumnName="EmploymentDate" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="StartingSalary" ColumnName="StartingSalary" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Salt" ColumnName="Salt" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -781,6 +757,20 @@ warning 6002: The table/view 'Warehouse.dbo.Payslip' does not have a primary key
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Payslips">
+            <EntityTypeMapping TypeName="WarehouseModel.Payslip">
+              <MappingFragment StoreEntitySet="Payslip">
+                <ScalarProperty Name="PayslipID" ColumnName="PayslipID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="MonthID" ColumnName="MonthID" />
+                <ScalarProperty Name="Seniority" ColumnName="Seniority" />
+                <ScalarProperty Name="SocialSecurity" ColumnName="SocialSecurity" />
+                <ScalarProperty Name="WithholdingTax" ColumnName="WithholdingTax" />
+                <ScalarProperty Name="Gross" ColumnName="Gross" />
+                <ScalarProperty Name="Net" ColumnName="Net" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="WarehouseModel.Product">
               <MappingFragment StoreEntitySet="Product">
@@ -818,20 +808,6 @@ warning 6002: The table/view 'Warehouse.dbo.Payslip' does not have a primary key
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Payslips">
-            <EntityTypeMapping TypeName="WarehouseModel.Payslip">
-              <MappingFragment StoreEntitySet="Payslip">
-                <ScalarProperty Name="PayslipID" ColumnName="PayslipID" />
-                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
-                <ScalarProperty Name="MonthID" ColumnName="MonthID" />
-                <ScalarProperty Name="Seniority" ColumnName="Seniority" />
-                <ScalarProperty Name="SocialSecurity" ColumnName="SocialSecurity" />
-                <ScalarProperty Name="WithholdingTax" ColumnName="WithholdingTax" />
-                <ScalarProperty Name="Gross" ColumnName="Gross" />
-                <ScalarProperty Name="Net" ColumnName="Net" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
