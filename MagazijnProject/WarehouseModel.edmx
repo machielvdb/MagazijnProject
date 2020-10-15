@@ -371,7 +371,7 @@
           <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="EmploymentDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="StartingSalary" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" FixedLength="false" Unicode="true" Nullable="false" MaxLength="255" />
           <Property Name="Salt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Access" Relationship="Self.FK_Employee_Access" FromRole="Employee" ToRole="Access" />
           <NavigationProperty Name="Logins" Relationship="Self.FK_Login_Employee" FromRole="Employee" ToRole="Login" />

@@ -30,8 +30,8 @@ namespace MagazijnProject.Forms
             else
             {
                 var hasher = new Hashing();
-                var salt = hasher.CreateSalt();
-                var hash = hasher.HashPassword(tbConfirm.Text, salt);
+                var salt = hasher.GetHashString(hasher.CreateSalt());
+                var hash = hasher.sha256encrypt(tbConfirm.Text, salt);
                 var success = hasher.VerifyHash(tbConfirm.Text, salt, hash);
 
                 if (success)
@@ -45,8 +45,8 @@ namespace MagazijnProject.Forms
                         };
 
                         var employee = ctx.Employees.Single(x => x.EmployeeID == _selectedEmployee.EmployeeID);
-                        employee.Password = hasher.GetHashString(salt);
-                        employee.Salt = hasher.GetHashString(hash);
+                        employee.Password = hash;
+                        employee.Salt = salt;
                         ctx.Logins.Add(login);
                         ctx.SaveChanges();
                         Close();

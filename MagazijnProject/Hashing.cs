@@ -6,7 +6,6 @@ using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-using Konscious.Security.Cryptography;
 
 namespace MagazijnProject
 {
@@ -19,29 +18,31 @@ namespace MagazijnProject
             rng.GetBytes(buffer);
             return buffer;
         }
-        public byte[] HashPassword(string password, byte[] salt)
+        public string sha256encrypt(string password, string salt)
         {
-            var argon2 = new Argon2id(Encoding.UTF8.GetBytes(password));
-            argon2.Salt = salt;
-            argon2.DegreeOfParallelism = 8; // four cores
-            argon2.Iterations = 1;
-            argon2.MemorySize = 1024 * 1024; // 1 GB
-            return argon2.GetBytes(16);
+            string saltAndPassword = string.Concat(password, salt);
+            UTF8Encoding encoder = new UTF8Encoding();
+            SHA256Managed sha256hasher = new SHA256Managed();
+            byte[] hashedBytes = sha256hasher.ComputeHash(encoder.GetBytes(saltAndPassword));
+            string hashedpassword = string.Concat(GetHashString(hashedBytes), salt);
+            return hashedpassword;
         }
-        public bool VerifyHash(string password, byte[] salt, byte[] hash)
+        public bool VerifyHash(string password, string salt, string storedpassword)
         {
-            var newHash = HashPassword(password, salt);
-            return hash.SequenceEqual(newHash);
+            var newHash = sha256encrypt(password, salt);
+            return (storedpassword == newHash);
         }
 
         public string GetHashString(byte[] hash)
         {
-            return Convert.ToBase64String(hash);
+            StringBuilder output = new StringBuilder("");
+            for (int i = 0; i < hash.Length; i++)
+            {
+                output.Append(hash[i].ToString("X2"));
+            }
+            return output.ToString();
         }
 
-        public byte[] GetHashBytes(string hash)
-        {
-            return Convert.FromBase64String(hash);
-        }
+        public byte[] GetHashBytes(string hash) => Convert.FromBase64String(hash);
     }
 }

@@ -9,7 +9,6 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Konscious.Security.Cryptography;
 using System.Diagnostics;
 
 namespace MagazijnProject
@@ -39,9 +38,9 @@ namespace MagazijnProject
                 else if (!string.IsNullOrEmpty(tbPassword.Text))
                 {
                     var hasher = new Hashing();
-                    byte[] hashbytes = hasher.GetHashBytes(employee.Password);
-                    byte[] saltbytes = hasher.GetHashBytes(employee.Salt);
-                    bool passwordsmatch = hasher.VerifyHash(tbPassword.Text, saltbytes, hashbytes);
+                    var storedpassword = employee.Password;
+                    var storedsalt = employee.Salt;
+                    bool passwordsmatch = hasher.VerifyHash(tbPassword.Text, storedsalt, storedpassword);
 
                     if (passwordsmatch)
                     {
@@ -86,33 +85,6 @@ namespace MagazijnProject
                     cbUsers.DataSource = employeelist;
                 }
             }
-        }
-
-        public void TestHashing()
-        {
-            var hasher = new Hashing();
-            var password = "Hello World!";
-            var stopwatch = Stopwatch.StartNew();
-            
-            MessageBox.Show($"Creating hash for password '{ password }'.");
-            
-            var salt = hasher.CreateSalt();
-            MessageBox.Show($"Using salt '{ Convert.ToBase64String(salt) }'.");
-            
-            var hash = hasher.HashPassword(password, salt);
-            MessageBox.Show($"Hash is '{ Convert.ToBase64String(hash) }'.");
-            
-            stopwatch.Stop();
-            MessageBox.Show($"Process took { stopwatch.ElapsedMilliseconds / 1024.0 } s");
-            
-            stopwatch = Stopwatch.StartNew();
-            MessageBox.Show($"Verifying hash...");
-            
-            var success = hasher.VerifyHash(password, salt, hash);
-            MessageBox.Show(success ? "Success!" : "Failure!");
-            
-            stopwatch.Stop();
-            MessageBox.Show($"Process took { stopwatch.ElapsedMilliseconds / 1024.0 } s");
         }
 
         private void btnNew_Click(object sender, EventArgs e)
