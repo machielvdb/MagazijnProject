@@ -35,7 +35,6 @@
             this.cbUsers = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cbDepartment = new System.Windows.Forms.ComboBox();
-            this.btnNew = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -102,22 +101,11 @@
             this.cbDepartment.TabIndex = 7;
             this.cbDepartment.SelectedIndexChanged += new System.EventHandler(this.cbDepartment_SelectedIndexChanged);
             // 
-            // btnNew
-            // 
-            this.btnNew.Location = new System.Drawing.Point(13, 115);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(301, 23);
-            this.btnNew.TabIndex = 8;
-            this.btnNew.Text = "New";
-            this.btnNew.UseVisualStyleBackColor = true;
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(325, 146);
-            this.Controls.Add(this.btnNew);
+            this.ClientSize = new System.Drawing.Size(325, 115);
             this.Controls.Add(this.cbDepartment);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbUsers);
@@ -143,7 +131,6 @@
         private System.Windows.Forms.ComboBox cbUsers;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbDepartment;
-        private System.Windows.Forms.Button btnNew;
     }
 }
 

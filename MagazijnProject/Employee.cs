@@ -30,7 +30,7 @@ namespace MagazijnProject
         public decimal StartingSalary { get; set; }
         public string Password { get; set; }
         public string Salt { get; set; }
-    
+
         public virtual Access Access { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Login> Logins { get; set; }
@@ -38,6 +38,7 @@ namespace MagazijnProject
         public virtual ICollection<Order> Orders { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Payslip> Payslips { get; set; }
+
         public string FullName
         {
             get

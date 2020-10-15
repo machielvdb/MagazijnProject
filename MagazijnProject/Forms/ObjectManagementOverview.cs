@@ -56,6 +56,12 @@ namespace MagazijnProject.Forms
                         lbObjects.ValueMember = "SupplierID";
                         lbObjects.DataSource = supplierlist;
                         break;
+                    case "Categories":
+                        var categorylist = ctx.Categories.ToList();
+                        lbObjects.DisplayMember = "CategoryName";
+                        lbObjects.ValueMember = "CategoryID";
+                        lbObjects.DataSource = categorylist;
+                        break;
                 }
             }
         }
@@ -66,14 +72,19 @@ namespace MagazijnProject.Forms
             {
                 case "Employees":
                     var selectedEmployee = (Employee)lbObjects.SelectedItem;
-                    var f = new EmployeeDetails(selectedEmployee);
-                    f.ShowDialog();
+                    var ed = new EmployeeDetails(selectedEmployee);
+                    ed.ShowDialog();
                     break;
                 case "Stock":
+                    var selectedProduct = (Product)lbObjects.SelectedItem;
+                    var sd = new StockDetails(selectedProduct);
+                    sd.ShowDialog();
                     break;
                 case "Customers":
                     break;
                 case "Suppliers":
+                    break;
+                case "Categories":
                     break;
             }
         }
@@ -83,10 +94,12 @@ namespace MagazijnProject.Forms
             switch (_userchoice)
             {
                 case "Employees":
-                    var f = new EmployeeDetails();
-                    f.ShowDialog();
+                    var ed = new EmployeeDetails();
+                    ed.ShowDialog();
                     break;
                 case "Stock":
+                    var sd = new StockDetails();
+                    sd.ShowDialog();
                     break;
                 case "Customers":
                     break;

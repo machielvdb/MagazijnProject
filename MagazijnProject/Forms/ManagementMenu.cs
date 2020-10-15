@@ -43,5 +43,11 @@ namespace MagazijnProject.Forms
             var f = new ObjectManagementOverview(btnSuppliers.Text, _loggedInEmployee);
             f.ShowDialog();
         }
+
+        private void btnCategories_Click(object sender, EventArgs e)
+        {
+            var f = new ObjectManagementOverview(btnCategories.Text, _loggedInEmployee);
+            f.ShowDialog();
+        }
     }
 }
