@@ -46,7 +46,7 @@
           <Property Name="Lastname" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="EmploymentDate" Type="date" Nullable="false" />
           <Property Name="StartingSalary" Type="decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Salt" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Login">
@@ -101,12 +101,17 @@
           </Key>
           <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Inkoopprijs" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Cost" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="Margin" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="Unit" Type="int" Nullable="false" />
           <Property Name="Tax" Type="int" Nullable="false" />
           <Property Name="CategoryID" Type="int" Nullable="false" />
           <Property Name="SupplierID" Type="int" Nullable="false" />
+          <Property Name="InStock" Type="bit" Nullable="false" />
+          <Property Name="AmountInStock" Type="int" Nullable="false" />
+          <Property Name="AmountInOrder" Type="int" />
+          <Property Name="AmountInBackorder" Type="int" />
+          <Property Name="AmountAvailable" Type="int" />
         </EntityType>
         <EntityType Name="Supplier">
           <Key>
@@ -371,7 +376,7 @@
           <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="EmploymentDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="StartingSalary" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="Password" Type="String" FixedLength="false" Unicode="true" Nullable="false" MaxLength="255" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Salt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Access" Relationship="Self.FK_Employee_Access" FromRole="Employee" ToRole="Access" />
           <NavigationProperty Name="Logins" Relationship="Self.FK_Login_Employee" FromRole="Employee" ToRole="Login" />
@@ -440,12 +445,17 @@
           </Key>
           <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Inkoopprijs" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Cost" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="Margin" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="Unit" Type="Int32" Nullable="false" />
           <Property Name="Tax" Type="Int32" Nullable="false" />
           <Property Name="CategoryID" Type="Int32" Nullable="false" />
           <Property Name="SupplierID" Type="Int32" Nullable="false" />
+          <Property Name="InStock" Type="Boolean" Nullable="false" />
+          <Property Name="AmountInStock" Type="Int32" Nullable="false" />
+          <Property Name="AmountInOrder" Type="Int32" />
+          <Property Name="AmountInBackorder" Type="Int32" />
+          <Property Name="AmountAvailable" Type="Int32" />
           <NavigationProperty Name="Category" Relationship="Self.FK_Product_Category" FromRole="Product" ToRole="Category" />
           <NavigationProperty Name="OrderProducts" Relationship="Self.FK_OrderProduct_Product" FromRole="Product" ToRole="OrderProduct" />
           <NavigationProperty Name="Supplier" Relationship="Self.FK_Product_Supplier" FromRole="Product" ToRole="Supplier" />
@@ -608,7 +618,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="WarehouseEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="WarehouseEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Accesses" EntityType="Self.Access" />
           <EntitySet Name="Categories" EntityType="Self.Category" />
           <EntitySet Name="Customers" EntityType="Self.Customer" />
@@ -671,7 +681,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="WarehouseModelStoreContainer" CdmEntityContainer="WarehouseEntities">
+        <EntityContainerMapping StorageEntityContainer="WarehouseModelStoreContainer" CdmEntityContainer="WarehouseEntities1">
           <EntitySetMapping Name="Accesses">
             <EntityTypeMapping TypeName="WarehouseModel.Access">
               <MappingFragment StoreEntitySet="Access">
@@ -776,12 +786,17 @@
               <MappingFragment StoreEntitySet="Product">
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Inkoopprijs" ColumnName="Inkoopprijs" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
                 <ScalarProperty Name="Margin" ColumnName="Margin" />
                 <ScalarProperty Name="Unit" ColumnName="Unit" />
                 <ScalarProperty Name="Tax" ColumnName="Tax" />
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
                 <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="InStock" ColumnName="InStock" />
+                <ScalarProperty Name="AmountInStock" ColumnName="AmountInStock" />
+                <ScalarProperty Name="AmountInOrder" ColumnName="AmountInOrder" />
+                <ScalarProperty Name="AmountInBackorder" ColumnName="AmountInBackorder" />
+                <ScalarProperty Name="AmountAvailable" ColumnName="AmountAvailable" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

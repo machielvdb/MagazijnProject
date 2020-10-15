@@ -22,12 +22,17 @@ namespace MagazijnProject
     
         public int ProductID { get; set; }
         public string Name { get; set; }
-        public decimal Inkoopprijs { get; set; }
+        public decimal Cost { get; set; }
         public decimal Margin { get; set; }
         public int Unit { get; set; }
         public int Tax { get; set; }
         public int CategoryID { get; set; }
         public int SupplierID { get; set; }
+        public bool InStock { get; set; }
+        public int AmountInStock { get; set; }
+        public Nullable<int> AmountInOrder { get; set; }
+        public Nullable<int> AmountInBackorder { get; set; }
+        public Nullable<int> AmountAvailable { get; set; }
     
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

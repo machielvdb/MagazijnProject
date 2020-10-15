@@ -33,7 +33,7 @@ namespace MagazijnProject.Forms
                     EmploymentDate = dtpEmployment.Value
                 };
 
-                using (WarehouseEntities ctx = new WarehouseEntities())
+                using (var ctx = new WarehouseEntities1())
                 {
                     ctx.Employees.Add(newEmployee);
                     ctx.SaveChanges();
@@ -44,7 +44,7 @@ namespace MagazijnProject.Forms
 
         private void NewUser_Load(object sender, EventArgs e)
         {
-            using (var ctx = new WarehouseEntities())
+            using (var ctx = new WarehouseEntities1())
             {
                 var accesslist = ctx.Accesses.ToList();
                 cbDepartment.DisplayMember = "AccessName";

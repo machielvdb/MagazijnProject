@@ -12,9 +12,24 @@ namespace MagazijnProject.Forms
 {
     public partial class ManagementMenu : Form
     {
-        public ManagementMenu()
+        static Employee _loggedInEmployee;
+        public ManagementMenu(Employee loggedInEmployee)
         {
             InitializeComponent();
+            CenterToScreen();
+            _loggedInEmployee = loggedInEmployee;
+        }
+
+        private void btnEmployees_Click(object sender, EventArgs e)
+        {
+            var f = new ObjectManagementOverview(btnEmployees.Text);
+            f.ShowDialog();
+        }
+
+        private void btnProducts_Click(object sender, EventArgs e)
+        {
+            var f = new ObjectManagementOverview(btnProducts.Text);
+            f.ShowDialog();
         }
     }
 }
