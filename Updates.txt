@@ -15,3 +15,7 @@ Nog verder zitten prutsen aan login, uiteindelijk terug gezet zoals het was.
 Database volledig herzien, alles naar het engels om aan het zetten. Relationships gelegd in MSSQL. Extra tabellen en properties toegevoegd waar later mits tijd over mee gewerkt kan worden.
 
 Login en hashing bijna af, passwoordcheck met hashing nog niet correct.
+
+15/10/2020:
+Login en hashing af. Begonnen aan databeheersysteem voor admin.
+Overzicht van employee's, toevoegen en wijzigen is af.

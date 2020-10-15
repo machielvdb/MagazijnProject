@@ -28,39 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.btnProducts = new System.Windows.Forms.Button();
+            this.btnSuppliers = new System.Windows.Forms.Button();
+            this.btnCustomers = new System.Windows.Forms.Button();
+            this.btnStock = new System.Windows.Forms.Button();
             this.btnEmployees = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button4
+            // btnSuppliers
             // 
-            this.button4.Location = new System.Drawing.Point(12, 99);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(185, 23);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnSuppliers.Location = new System.Drawing.Point(12, 99);
+            this.btnSuppliers.Name = "btnSuppliers";
+            this.btnSuppliers.Size = new System.Drawing.Size(185, 23);
+            this.btnSuppliers.TabIndex = 7;
+            this.btnSuppliers.Text = "Suppliers";
+            this.btnSuppliers.UseVisualStyleBackColor = true;
+            this.btnSuppliers.Click += new System.EventHandler(this.btnSuppliers_Click);
             // 
-            // button3
+            // btnCustomers
             // 
-            this.button3.Location = new System.Drawing.Point(12, 70);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(185, 23);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnCustomers.Location = new System.Drawing.Point(12, 70);
+            this.btnCustomers.Name = "btnCustomers";
+            this.btnCustomers.Size = new System.Drawing.Size(185, 23);
+            this.btnCustomers.TabIndex = 6;
+            this.btnCustomers.Text = "Customers";
+            this.btnCustomers.UseVisualStyleBackColor = true;
+            this.btnCustomers.Click += new System.EventHandler(this.btnCustomers_Click);
             // 
-            // btnProducts
+            // btnStock
             // 
-            this.btnProducts.Location = new System.Drawing.Point(12, 41);
-            this.btnProducts.Name = "btnProducts";
-            this.btnProducts.Size = new System.Drawing.Size(185, 23);
-            this.btnProducts.TabIndex = 5;
-            this.btnProducts.Text = "Products";
-            this.btnProducts.UseVisualStyleBackColor = true;
-            this.btnProducts.Click += new System.EventHandler(this.btnProducts_Click);
+            this.btnStock.Location = new System.Drawing.Point(12, 41);
+            this.btnStock.Name = "btnStock";
+            this.btnStock.Size = new System.Drawing.Size(185, 23);
+            this.btnStock.TabIndex = 5;
+            this.btnStock.Text = "Stock";
+            this.btnStock.UseVisualStyleBackColor = true;
+            this.btnStock.Click += new System.EventHandler(this.btnProducts_Click);
             // 
             // btnEmployees
             // 
@@ -76,10 +78,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(212, 160);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.btnProducts);
+            this.ClientSize = new System.Drawing.Size(212, 135);
+            this.Controls.Add(this.btnSuppliers);
+            this.Controls.Add(this.btnCustomers);
+            this.Controls.Add(this.btnStock);
             this.Controls.Add(this.btnEmployees);
             this.Name = "ManagementMenu";
             this.Text = "ManagementMenu";
@@ -89,9 +91,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button btnProducts;
+        private System.Windows.Forms.Button btnSuppliers;
+        private System.Windows.Forms.Button btnCustomers;
+        private System.Windows.Forms.Button btnStock;
         private System.Windows.Forms.Button btnEmployees;
     }
 }

@@ -22,13 +22,25 @@ namespace MagazijnProject.Forms
 
         private void btnEmployees_Click(object sender, EventArgs e)
         {
-            var f = new ObjectManagementOverview(btnEmployees.Text);
+            var f = new ObjectManagementOverview(btnEmployees.Text, _loggedInEmployee);
             f.ShowDialog();
         }
 
         private void btnProducts_Click(object sender, EventArgs e)
         {
-            var f = new ObjectManagementOverview(btnProducts.Text);
+            var f = new ObjectManagementOverview(btnStock.Text, _loggedInEmployee);
+            f.ShowDialog();
+        }
+
+        private void btnCustomers_Click(object sender, EventArgs e)
+        {
+            var f = new ObjectManagementOverview(btnCustomers.Text, _loggedInEmployee);
+            f.ShowDialog();
+        }
+
+        private void btnSuppliers_Click(object sender, EventArgs e)
+        {
+            var f = new ObjectManagementOverview(btnSuppliers.Text, _loggedInEmployee);
             f.ShowDialog();
         }
     }

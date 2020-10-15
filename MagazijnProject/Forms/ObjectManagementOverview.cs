@@ -15,27 +15,13 @@ namespace MagazijnProject.Forms
     public partial class ObjectManagementOverview : Form
     {
         static string _userchoice;
-        public ObjectManagementOverview(string userchoice)
+        static Employee _loggedInEmployee;
+        public ObjectManagementOverview(string userchoice, Employee loggedInEmployee)
         {
             InitializeComponent();
             CenterToScreen();
             _userchoice = userchoice;
-        }
-
-        public class _Employee
-        {
-            public string Firstname { get; set; }
-            public string Lastname { get; set; }
-            public int Id { get; set; }
-            public override string ToString() => $"{Firstname} {Lastname}";
-        }
-
-        public class _Customer
-        {
-            public string Firstname { get; set; }
-            public string Lastname { get; set; }
-            public int Id { get; set; }
-            public override string ToString() => $"{Firstname} {Lastname}";
+            _loggedInEmployee = loggedInEmployee;
         }
         private void ObjectManagementOverview_Load(object sender, EventArgs e)
         {
@@ -44,12 +30,9 @@ namespace MagazijnProject.Forms
                 switch (_userchoice)
                 {
                     case "Employees":
-                        var employeelist = ctx.Employees.Select(x => new _Employee()
-                        {
-                            Firstname = x.Firstname,
-                            Lastname = x.Lastname,
-                            Id = x.EmployeeID
-                        }).ToList();
+                        var employeelist = ctx.Employees.ToList();
+                        lbObjects.DisplayMember = "FullName";
+                        lbObjects.ValueMember = "EmployeeID";
                         lbObjects.DataSource = employeelist;
                         break;
 
@@ -61,12 +44,9 @@ namespace MagazijnProject.Forms
                         break;
 
                     case "Customers":
-                        var customerlist = ctx.Customers.Select(x => new _Customer()
-                        {
-                            Firstname = x.Firstname,
-                            Lastname = x.Lastname,
-                            Id = x.CustomerID
-                        }).ToList();
+                        var customerlist = ctx.Customers.ToList();
+                        lbObjects.DisplayMember = "FullName";
+                        lbObjects.ValueMember = "CustomerID";
                         lbObjects.DataSource = customerlist;
                         break;
 
@@ -77,6 +57,41 @@ namespace MagazijnProject.Forms
                         lbObjects.DataSource = supplierlist;
                         break;
                 }
+            }
+        }
+
+        private void Details_Click(object sender, EventArgs e)
+        {
+            switch (_userchoice)
+            {
+                case "Employees":
+                    var selectedEmployee = (Employee)lbObjects.SelectedItem;
+                    var f = new EmployeeDetails(selectedEmployee);
+                    f.ShowDialog();
+                    break;
+                case "Stock":
+                    break;
+                case "Customers":
+                    break;
+                case "Suppliers":
+                    break;
+            }
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            switch (_userchoice)
+            {
+                case "Employees":
+                    var f = new EmployeeDetails();
+                    f.ShowDialog();
+                    break;
+                case "Stock":
+                    break;
+                case "Customers":
+                    break;
+                case "Suppliers":
+                    break;
             }
         }
     }
