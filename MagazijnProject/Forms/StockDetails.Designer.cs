@@ -239,6 +239,7 @@
             // 
             // cbCategory
             // 
+            this.cbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCategory.FormattingEnabled = true;
             this.cbCategory.Location = new System.Drawing.Point(89, 110);
             this.cbCategory.Name = "cbCategory";
@@ -257,6 +258,7 @@
             // 
             // cbSupplier
             // 
+            this.cbSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSupplier.FormattingEnabled = true;
             this.cbSupplier.Location = new System.Drawing.Point(89, 136);
             this.cbSupplier.Name = "cbSupplier";

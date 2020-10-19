@@ -125,6 +125,12 @@
     <Compile Include="Forms\ObjectManagementOverview.Designer.cs">
       <DependentUpon>ObjectManagementOverview.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\OrderDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OrderDetails.Designer.cs">
+      <DependentUpon>OrderDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\StockDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +191,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>WarehouseModel.edmx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\CategorieDetails.resx">
+      <DependentUpon>CategorieDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ChoosePassword.resx">
       <DependentUpon>ChoosePassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ObjectManagementOverview.resx">
       <DependentUpon>ObjectManagementOverview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OrderDetails.resx">
+      <DependentUpon>OrderDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\StockDetails.resx">
       <DependentUpon>StockDetails.cs</DependentUpon>

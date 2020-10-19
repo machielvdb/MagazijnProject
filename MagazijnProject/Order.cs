@@ -21,7 +21,7 @@ namespace MagazijnProject
         }
     
         public int OrderID { get; set; }
-        public Nullable<System.DateTime> DateCreated { get; set; }
+        public System.DateTime DateCreated { get; set; }
         public int EmployeeID { get; set; }
         public int SupplierID { get; set; }
         public int CustomerID { get; set; }

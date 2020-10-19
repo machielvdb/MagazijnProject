@@ -93,6 +93,9 @@ namespace MagazijnProject.Forms
                     supd.ShowDialog();
                     break;
                 case "Categories":
+                    var selectedCategory = (Category)lbObjects.SelectedItem;
+                    var catd = new CategorieDetails(selectedCategory);
+                    catd.ShowDialog();
                     break;
                 case "Orders":
                     break;
@@ -120,8 +123,12 @@ namespace MagazijnProject.Forms
                     supd.ShowDialog();
                     break;
                 case "Categories":
+                    var catd = new CategorieDetails();
+                    catd.ShowDialog();
                     break;
                 case "Orders":
+                    var od = new OrderDetails(_loggedInEmployee);
+                    od.ShowDialog();
                     break;
             }
         }

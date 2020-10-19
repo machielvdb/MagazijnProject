@@ -69,7 +69,7 @@
             <PropertyRef Name="OrderID" />
           </Key>
           <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DateCreated" Type="date" />
+          <Property Name="DateCreated" Type="date" Nullable="false" />
           <Property Name="EmployeeID" Type="int" Nullable="false" />
           <Property Name="SupplierID" Type="int" Nullable="false" />
           <Property Name="CustomerID" Type="int" Nullable="false" />
@@ -81,6 +81,7 @@
           <Property Name="OrderProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="OrderID" Type="int" Nullable="false" />
           <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Payslip">
           <Key>
@@ -403,7 +404,7 @@
             <PropertyRef Name="OrderID" />
           </Key>
           <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DateCreated" Type="DateTime" Precision="0" />
+          <Property Name="DateCreated" Type="DateTime" Precision="0" Nullable="false" />
           <Property Name="EmployeeID" Type="Int32" Nullable="false" />
           <Property Name="SupplierID" Type="Int32" Nullable="false" />
           <Property Name="CustomerID" Type="Int32" Nullable="false" />
@@ -421,6 +422,7 @@
           <Property Name="ProductID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Order" Relationship="Self.FK_OrderProduct_Order" FromRole="OrderProduct" ToRole="Order" />
           <NavigationProperty Name="Product" Relationship="Self.FK_OrderProduct_Product" FromRole="OrderProduct" ToRole="Product" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Payslip">
           <Key>
@@ -758,6 +760,7 @@
           <EntitySetMapping Name="OrderProducts">
             <EntityTypeMapping TypeName="WarehouseModel.OrderProduct">
               <MappingFragment StoreEntitySet="OrderProduct">
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
                 <ScalarProperty Name="OrderProductID" ColumnName="OrderProductID" />
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
