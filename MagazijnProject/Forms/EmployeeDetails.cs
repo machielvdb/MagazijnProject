@@ -25,7 +25,6 @@ namespace MagazijnProject.Forms
         {
             InitializeComponent();
             CenterToScreen();
-            _selectedEmployee = null;
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
@@ -38,13 +37,19 @@ namespace MagazijnProject.Forms
                 {
                     using (var ctx = new WarehouseEntities1())
                     {
-                        var employee = new Employee()
+                        var newEmployee = new Employee()
                         {
                             Firstname = tbFirstname.Text,
                             Lastname = tbLastname.Text,
+                            EmploymentDate = dtpEmploymentDate.Value,
                             StartingSalary = decimal.Parse(tbStartingSalary.Text),
-                            EmploymentDate = dtpEmploymentDate.Value
+                            AccessID = Convert.ToInt32(cbAccess.SelectedValue),
+                            Password = "a"
                         };
+
+                        ctx.Employees.Add(newEmployee);
+                        ctx.SaveChanges();
+                        Close();
                     }
                 }
             }

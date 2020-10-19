@@ -118,23 +118,23 @@ namespace MagazijnProject.Forms
 
                     if (dialogResult == DialogResult.Yes)
                     {
-                        var getProductToEdit = ctx.Products.Find(_selectedProduct.ProductID);
+                        var productToEdit = ctx.Products.Find(_selectedProduct.ProductID);
 
-                        if (getProductToEdit == null)
+                        if (productToEdit == null)
                             MessageBox.Show("Something went wrong.");
                         else
                         {
-                            getProductToEdit.Name = tbName.Text;
-                            getProductToEdit.Cost = decimal.Parse(tbCost.Text);
-                            getProductToEdit.Margin = decimal.Parse(tbMargin.Text);
-                            getProductToEdit.Tax = Convert.ToInt32(cbTax.SelectedValue);
-                            getProductToEdit.CategoryID = Convert.ToInt32(cbCategory.SelectedValue);
-                            getProductToEdit.SupplierID = Convert.ToInt32(cbSupplier.SelectedValue);
-                            getProductToEdit.InStock = rbYes.Checked ? true : false;
-                            getProductToEdit.AmountInStock = int.Parse(tbAmount.Text);
-                            getProductToEdit.AmountInOrder = int.Parse(tbOrder.Text);
-                            getProductToEdit.AmountAvailable = int.Parse(tbAmountAvailable.Text);
-                            getProductToEdit.AmountInBackorder = int.Parse(tbBackorder.Text);
+                            productToEdit.Name = tbName.Text;
+                            productToEdit.Cost = decimal.Parse(tbCost.Text);
+                            productToEdit.Margin = decimal.Parse(tbMargin.Text);
+                            productToEdit.Tax = Convert.ToInt32(cbTax.SelectedValue);
+                            productToEdit.CategoryID = Convert.ToInt32(cbCategory.SelectedValue);
+                            productToEdit.SupplierID = Convert.ToInt32(cbSupplier.SelectedValue);
+                            productToEdit.InStock = rbYes.Checked ? true : false;
+                            productToEdit.AmountInStock = int.Parse(tbAmount.Text);
+                            productToEdit.AmountInOrder = int.Parse(tbOrder.Text);
+                            productToEdit.AmountAvailable = int.Parse(tbAmountAvailable.Text);
+                            productToEdit.AmountInBackorder = int.Parse(tbBackorder.Text);
                             ctx.SaveChanges();
                             Close();
                         }
@@ -191,6 +191,7 @@ namespace MagazijnProject.Forms
                 cbSupplier.DisplayMember = "Name";
                 cbSupplier.ValueMember = "SupplierID";
                 cbSupplier.DataSource = supplierlist;
+
                 if (_selectedProduct != null)
                     cbSupplier.SelectedValue = _selectedProduct.SupplierID;
             }

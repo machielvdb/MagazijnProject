@@ -21,8 +21,8 @@ namespace MagazijnProject
         public string sha256encrypt(string password, string salt)
         {
             string saltAndPassword = string.Concat(password, salt);
-            UTF8Encoding encoder = new UTF8Encoding();
-            SHA256Managed sha256hasher = new SHA256Managed();
+            var encoder = new UTF8Encoding();
+            var sha256hasher = new SHA256Managed();
             byte[] hashedBytes = sha256hasher.ComputeHash(encoder.GetBytes(saltAndPassword));
             string hashedpassword = string.Concat(GetHashString(hashedBytes), salt);
             return hashedpassword;

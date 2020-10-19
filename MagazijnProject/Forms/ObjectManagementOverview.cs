@@ -62,6 +62,8 @@ namespace MagazijnProject.Forms
                         lbObjects.ValueMember = "CategoryID";
                         lbObjects.DataSource = categorylist;
                         break;
+                    case "Orders":
+                        break;
                 }
             }
         }
@@ -81,10 +83,18 @@ namespace MagazijnProject.Forms
                     sd.ShowDialog();
                     break;
                 case "Customers":
+                    var selectedCustomer = (Customer)lbObjects.SelectedItem;
+                    var cd = new CustomerDetails(selectedCustomer);
+                    cd.ShowDialog();
                     break;
                 case "Suppliers":
+                    var selectedSupplier = (Supplier)lbObjects.SelectedItem;
+                    var supd = new SupplierDetails(selectedSupplier);
+                    supd.ShowDialog();
                     break;
                 case "Categories":
+                    break;
+                case "Orders":
                     break;
             }
         }
@@ -102,8 +112,16 @@ namespace MagazijnProject.Forms
                     sd.ShowDialog();
                     break;
                 case "Customers":
+                    var cd = new CustomerDetails();
+                    cd.ShowDialog();
                     break;
                 case "Suppliers":
+                    var supd = new SupplierDetails();
+                    supd.ShowDialog();
+                    break;
+                case "Categories":
+                    break;
+                case "Orders":
                     break;
             }
         }

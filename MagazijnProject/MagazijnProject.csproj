@@ -77,11 +77,23 @@
     <Compile Include="Employee.cs">
       <DependentUpon>WarehouseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CategorieDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CategorieDetails.Designer.cs">
+      <DependentUpon>CategorieDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ChoosePassword.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ChoosePassword.Designer.cs">
       <DependentUpon>ChoosePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CustomerDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomerDetails.Designer.cs">
+      <DependentUpon>CustomerDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\EmployeeDetails.cs">
       <SubType>Form</SubType>
@@ -118,6 +130,12 @@
     </Compile>
     <Compile Include="Forms\StockDetails.Designer.cs">
       <DependentUpon>StockDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SupplierDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SupplierDetails.Designer.cs">
+      <DependentUpon>SupplierDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\UserMenu.cs">
       <SubType>Form</SubType>
@@ -170,6 +188,9 @@
     <EmbeddedResource Include="Forms\ChoosePassword.resx">
       <DependentUpon>ChoosePassword.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomerDetails.resx">
+      <DependentUpon>CustomerDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\EmployeeDetails.resx">
       <DependentUpon>EmployeeDetails.cs</DependentUpon>
     </EmbeddedResource>
@@ -187,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\StockDetails.resx">
       <DependentUpon>StockDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SupplierDetails.resx">
+      <DependentUpon>SupplierDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserMenu.resx">
       <DependentUpon>UserMenu.cs</DependentUpon>

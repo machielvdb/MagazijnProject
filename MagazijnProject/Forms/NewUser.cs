@@ -21,7 +21,7 @@ namespace MagazijnProject.Forms
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(tbName.Text) || !string.IsNullOrEmpty(tbSurname.Text))
+            if (!string.IsNullOrEmpty(tbName.Text) && !string.IsNullOrEmpty(tbSurname.Text))
             {
                 Employee newEmployee = new Employee
                 {

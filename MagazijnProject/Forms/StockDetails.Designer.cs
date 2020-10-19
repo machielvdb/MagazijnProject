@@ -46,10 +46,10 @@
             this.tbBackorder = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbNo = new System.Windows.Forms.RadioButton();
+            this.rbYes = new System.Windows.Forms.RadioButton();
             this.cbTax = new System.Windows.Forms.ComboBox();
             this.cbCategory = new System.Windows.Forms.ComboBox();
-            this.rbYes = new System.Windows.Forms.RadioButton();
-            this.rbNo = new System.Windows.Forms.RadioButton();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.cbSupplier = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
@@ -205,21 +205,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "In stock:";
             // 
-            // cbTax
+            // rbNo
             // 
-            this.cbTax.FormattingEnabled = true;
-            this.cbTax.Location = new System.Drawing.Point(89, 84);
-            this.cbTax.Name = "cbTax";
-            this.cbTax.Size = new System.Drawing.Size(121, 21);
-            this.cbTax.TabIndex = 25;
-            // 
-            // cbCategory
-            // 
-            this.cbCategory.FormattingEnabled = true;
-            this.cbCategory.Location = new System.Drawing.Point(89, 110);
-            this.cbCategory.Name = "cbCategory";
-            this.cbCategory.Size = new System.Drawing.Size(121, 21);
-            this.cbCategory.TabIndex = 26;
+            this.rbNo.AutoSize = true;
+            this.rbNo.Location = new System.Drawing.Point(78, 16);
+            this.rbNo.Name = "rbNo";
+            this.rbNo.Size = new System.Drawing.Size(39, 17);
+            this.rbNo.TabIndex = 1;
+            this.rbNo.TabStop = true;
+            this.rbNo.Text = "No";
+            this.rbNo.UseVisualStyleBackColor = true;
             // 
             // rbYes
             // 
@@ -233,16 +228,22 @@
             this.rbYes.UseVisualStyleBackColor = true;
             this.rbYes.CheckedChanged += new System.EventHandler(this.rbYes_CheckedChanged);
             // 
-            // rbNo
+            // cbTax
             // 
-            this.rbNo.AutoSize = true;
-            this.rbNo.Location = new System.Drawing.Point(78, 16);
-            this.rbNo.Name = "rbNo";
-            this.rbNo.Size = new System.Drawing.Size(39, 17);
-            this.rbNo.TabIndex = 1;
-            this.rbNo.TabStop = true;
-            this.rbNo.Text = "No";
-            this.rbNo.UseVisualStyleBackColor = true;
+            this.cbTax.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTax.FormattingEnabled = true;
+            this.cbTax.Location = new System.Drawing.Point(89, 84);
+            this.cbTax.Name = "cbTax";
+            this.cbTax.Size = new System.Drawing.Size(121, 21);
+            this.cbTax.TabIndex = 25;
+            // 
+            // cbCategory
+            // 
+            this.cbCategory.FormattingEnabled = true;
+            this.cbCategory.Location = new System.Drawing.Point(89, 110);
+            this.cbCategory.Name = "cbCategory";
+            this.cbCategory.Size = new System.Drawing.Size(121, 21);
+            this.cbCategory.TabIndex = 26;
             // 
             // btnConfirm
             // 
