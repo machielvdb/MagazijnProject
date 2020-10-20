@@ -13,7 +13,7 @@ namespace MagazijnProject.Forms
     public partial class CustomerOrderDetails : Form
     {
         static Employee _loggedInEmployee;
-        static List<OrderProduct> _orderList = new List<OrderProduct>();
+        static List<CustomerOrderProduct> _orderList = new List<CustomerOrderProduct>();
 
         public CustomerOrderDetails(Employee loggedInEmployee)
         {
@@ -24,7 +24,7 @@ namespace MagazijnProject.Forms
 
         private void OrderDetails_Load(object sender, EventArgs e)
         {
-            using (var ctx = new WarehouseEntities1())
+            using (var ctx = new WarehouseEntity())
             {
                 var customerList = ctx.Customers.ToList();
                 cbCustomer.DisplayMember = "FullName";
@@ -40,8 +40,8 @@ namespace MagazijnProject.Forms
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            var newOrderProduct = CreateNewOrderProduct();
-            _orderList.Add(newOrderProduct);
+            var newCustomerOrderProduct = CreateNewCustomerOrderProduct();
+            _orderList.Add(newCustomerOrderProduct);
             lbAdded.DisplayMember = "ProductnameAndAmount";
             lbAdded.ValueMember = "OrderProductID";
             lbAdded.DataSource = _orderList;
@@ -53,40 +53,46 @@ namespace MagazijnProject.Forms
 
             if (DialogResult == DialogResult.Yes)
             {
-                using (var ctx = new WarehouseEntities1())
+                using (var ctx = new WarehouseEntity())
                 {
                     foreach (var item in _orderList)
                     {
-                        ctx.OrderProducts.Add(item);
+                        ctx.CustomerOrderProducts.Add(item);
+                        ctx.SaveChanges();
                     }
-                    ctx.SaveChanges();
                     MessageBox.Show("Orders saved.");
                     Close();
                 }
             }
         }
 
-        private Order CreateNewOrder()
+        private CustomerOrder CreateNewCustomerOrder()
         {
-            var newOrder = new Order
+            using (var ctx = new WarehouseEntity())
             {
-                EmployeeID = _loggedInEmployee.EmployeeID,
-                CustomerID = Convert.ToInt32(cbCustomer.SelectedValue),
-                DateCreated = DateTime.Now
-            };
-            return newOrder;
+                var newCustomerOrder = new CustomerOrder
+                {
+                    EmployeeID = _loggedInEmployee.EmployeeID,
+                    CustomerID = Convert.ToInt32(cbCustomer.SelectedValue),
+                    DateCreated = DateTime.Now
+                };
+
+                ctx.CustomerOrders.Add(newCustomerOrder);
+                ctx.SaveChanges();
+                return newCustomerOrder;
+            }
         }
 
-        private OrderProduct CreateNewOrderProduct()
+        private CustomerOrderProduct CreateNewCustomerOrderProduct()
         {
-            var newOrder = CreateNewOrder();
-            var newOrderProduct = new OrderProduct
+            var newCustomerOrder = CreateNewCustomerOrder();
+
+            var newCustomerOrderProduct = new CustomerOrderProduct
             {
                 Product = (Product)cbProduct.SelectedItem,
-                Amount = Convert.ToInt32(numAmount.Value),
-                OrderID = newOrder.OrderID
+                CustomerOrderID = newCustomerOrder.CustomerOrderID
             };
-            return newOrderProduct;
+            return newCustomerOrderProduct;
         }
     }
 }

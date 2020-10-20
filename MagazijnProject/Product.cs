@@ -17,7 +17,7 @@ namespace MagazijnProject
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
-            this.OrderProducts = new HashSet<OrderProduct>();
+            this.CustomerOrderProducts = new HashSet<CustomerOrderProduct>();
         }
     
         public int ProductID { get; set; }
@@ -35,7 +35,8 @@ namespace MagazijnProject
     
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderProduct> OrderProducts { get; set; }
+        public virtual ICollection<CustomerOrderProduct> CustomerOrderProducts { get; set; }
         public virtual Supplier Supplier { get; set; }
+        public virtual SupplierOrderProduct SupplierOrderProduct { get; set; }
     }
 }

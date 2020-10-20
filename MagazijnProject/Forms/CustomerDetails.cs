@@ -51,7 +51,7 @@ namespace MagazijnProject.Forms
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    using (var ctx = new WarehouseEntities1())
+                    using (var ctx = new WarehouseEntity())
                     {
                         var newCustomer = new Customer()
                         {
@@ -82,7 +82,7 @@ namespace MagazijnProject.Forms
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    using (var ctx = new WarehouseEntities1())
+                    using (var ctx = new WarehouseEntity())
                     {
                         var getCustomer = ctx.Customers.Find(_selectedCustomer.CustomerID);
                         getCustomer.Firstname = tbFirstname.Text;

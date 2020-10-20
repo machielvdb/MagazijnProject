@@ -32,7 +32,7 @@ namespace MagazijnProject.Forms
         {
             if (_selectedProduct != null)
             {
-                using (var ctx = new WarehouseEntities1())
+                using (var ctx = new WarehouseEntity())
                 {
                     tbName.Text = _selectedProduct.Name;
                     tbCost.Text = _selectedProduct.Cost.ToString();
@@ -97,7 +97,7 @@ namespace MagazijnProject.Forms
                     AmountInBackorder = int.Parse(tbBackorder.Text)
                 };
 
-                using (var ctx = new WarehouseEntities1())
+                using (var ctx = new WarehouseEntity())
                 {
                     var dialogResult = MessageBox.Show("Are you sure you want to create this new product?", "New product", MessageBoxButtons.YesNo);
 
@@ -112,7 +112,7 @@ namespace MagazijnProject.Forms
 
             else
             {
-                using (var ctx = new WarehouseEntities1())
+                using (var ctx = new WarehouseEntity())
                 {
                     var dialogResult = MessageBox.Show("Are you sure you want to save changes?", "Edit product", MessageBoxButtons.YesNo);
 
@@ -172,7 +172,7 @@ namespace MagazijnProject.Forms
 
         public void FillCategoryBox()
         {
-            using (var ctx = new WarehouseEntities1())
+            using (var ctx = new WarehouseEntity())
             {
                 var categorylist = ctx.Categories.ToList();
                 cbCategory.DisplayMember = "CategoryName";
@@ -185,7 +185,7 @@ namespace MagazijnProject.Forms
 
         public void FillSupplierBox()
         {
-            using (var ctx = new WarehouseEntities1())
+            using (var ctx = new WarehouseEntity())
             {
                 var supplierlist = ctx.Suppliers.ToList();
                 cbSupplier.DisplayMember = "Name";
