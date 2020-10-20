@@ -95,6 +95,12 @@
     <Compile Include="Forms\CustomerDetails.Designer.cs">
       <DependentUpon>CustomerDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CustomerOrderDetails - Copy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomerOrderDetails - Copy.Designer.cs">
+      <DependentUpon>CustomerOrderDetails - Copy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EmployeeDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,11 +131,11 @@
     <Compile Include="Forms\ObjectManagementOverview.Designer.cs">
       <DependentUpon>ObjectManagementOverview.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\OrderDetails.cs">
+    <Compile Include="Forms\CustomerOrderDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\OrderDetails.Designer.cs">
-      <DependentUpon>OrderDetails.cs</DependentUpon>
+    <Compile Include="Forms\CustomerOrderDetails.Designer.cs">
+      <DependentUpon>CustomerOrderDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\StockDetails.cs">
       <SubType>Form</SubType>
@@ -200,6 +206,9 @@
     <EmbeddedResource Include="Forms\CustomerDetails.resx">
       <DependentUpon>CustomerDetails.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomerOrderDetails - Copy.resx">
+      <DependentUpon>CustomerOrderDetails - Copy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\EmployeeDetails.resx">
       <DependentUpon>EmployeeDetails.cs</DependentUpon>
     </EmbeddedResource>
@@ -215,8 +224,8 @@
     <EmbeddedResource Include="Forms\ObjectManagementOverview.resx">
       <DependentUpon>ObjectManagementOverview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\OrderDetails.resx">
-      <DependentUpon>OrderDetails.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\CustomerOrderDetails.resx">
+      <DependentUpon>CustomerOrderDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\StockDetails.resx">
       <DependentUpon>StockDetails.cs</DependentUpon>

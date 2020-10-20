@@ -33,7 +33,8 @@
             this.btnStock = new System.Windows.Forms.Button();
             this.btnEmployees = new System.Windows.Forms.Button();
             this.btnCategories = new System.Windows.Forms.Button();
-            this.btnOrders = new System.Windows.Forms.Button();
+            this.btnCustomerOrders = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSuppliers
@@ -86,22 +87,32 @@
             this.btnCategories.UseVisualStyleBackColor = true;
             this.btnCategories.Click += new System.EventHandler(this.btnCategories_Click);
             // 
-            // btnOrders
+            // btnCustomerOrders
             // 
-            this.btnOrders.Location = new System.Drawing.Point(12, 157);
-            this.btnOrders.Name = "btnOrders";
-            this.btnOrders.Size = new System.Drawing.Size(185, 23);
-            this.btnOrders.TabIndex = 9;
-            this.btnOrders.Text = "Orders";
-            this.btnOrders.UseVisualStyleBackColor = true;
-            this.btnOrders.Click += new System.EventHandler(this.btnOrders_Click);
+            this.btnCustomerOrders.Location = new System.Drawing.Point(12, 157);
+            this.btnCustomerOrders.Name = "btnCustomerOrders";
+            this.btnCustomerOrders.Size = new System.Drawing.Size(185, 23);
+            this.btnCustomerOrders.TabIndex = 9;
+            this.btnCustomerOrders.Text = "Customer Orders";
+            this.btnCustomerOrders.UseVisualStyleBackColor = true;
+            this.btnCustomerOrders.Click += new System.EventHandler(this.btnOrders_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 186);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(185, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Supplier Orders";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // ManagementMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(212, 194);
-            this.Controls.Add(this.btnOrders);
+            this.ClientSize = new System.Drawing.Size(212, 220);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCustomerOrders);
             this.Controls.Add(this.btnCategories);
             this.Controls.Add(this.btnSuppliers);
             this.Controls.Add(this.btnCustomers);
@@ -120,6 +131,7 @@
         private System.Windows.Forms.Button btnStock;
         private System.Windows.Forms.Button btnEmployees;
         private System.Windows.Forms.Button btnCategories;
-        private System.Windows.Forms.Button btnOrders;
+        private System.Windows.Forms.Button btnCustomerOrders;
+        private System.Windows.Forms.Button button1;
     }
 }

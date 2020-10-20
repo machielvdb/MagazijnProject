@@ -12,8 +12,8 @@ namespace MagazijnProject.Forms
 {
     public partial class OrderDetails : Form
     {
-        Employee _loggedInEmployee;
-        List<OrderProduct> _orderList = new List<OrderProduct>();
+        static Employee _loggedInEmployee;
+        static List<OrderProduct> _orderList = new List<OrderProduct>();
 
         public OrderDetails(Employee loggedInEmployee)
         {
@@ -40,12 +40,12 @@ namespace MagazijnProject.Forms
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            var newOrder = new OrderProduct();
-            newOrder.Product = (Product)cbProduct.SelectedItem;
-            newOrder.Order.Employee = _loggedInEmployee;
-            newOrder.Order.Customer = (Customer)cbCustomer.SelectedItem;
-            newOrder.Amount = Convert.ToInt32(numAmount.Value);
-            _orderList.Add(newOrder);
+            var newOrderProduct = new OrderProduct();
+            newOrderProduct.Product = (Product)cbProduct.SelectedItem;
+            newOrderProduct.Order.EmployeeID = _loggedInEmployee.EmployeeID;
+            newOrderProduct.Order.Customer = (Customer)cbCustomer.SelectedItem;
+            newOrderProduct.Amount = Convert.ToInt32(numAmount.Value);
+            _orderList.Add(newOrderProduct);
             lbAdded.DisplayMember = "ProductnameAndAmount";
             lbAdded.DisplayMember = "OrderProductID";
             lbAdded.DataSource = _orderList;
