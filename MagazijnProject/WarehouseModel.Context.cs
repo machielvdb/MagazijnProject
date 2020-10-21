@@ -13,10 +13,10 @@ namespace MagazijnProject
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WarehouseEntity : DbContext
+    public partial class WarehouseDBEntity : DbContext
     {
-        public WarehouseEntity()
-            : base("name=WarehouseEntity")
+        public WarehouseDBEntity()
+            : base("name=WarehouseDBEntity")
         {
         }
     
@@ -28,16 +28,14 @@ namespace MagazijnProject
         public virtual DbSet<Access> Accesses { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<CustomerOrder> CustomerOrders { get; set; }
-        public virtual DbSet<CustomerOrderProduct> CustomerOrderProducts { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Login> Logins { get; set; }
         public virtual DbSet<Month> Months { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<OrderProduct> OrderProducts { get; set; }
         public virtual DbSet<Payslip> Payslips { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
-        public virtual DbSet<SupplierOrder> SupplierOrders { get; set; }
-        public virtual DbSet<SupplierOrderProduct> SupplierOrderProducts { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

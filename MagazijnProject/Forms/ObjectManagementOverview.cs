@@ -25,7 +25,7 @@ namespace MagazijnProject.Forms
         }
         private void ObjectManagementOverview_Load(object sender, EventArgs e)
         {
-            using (var ctx = new WarehouseEntity())
+            using (var ctx = new WarehouseDBEntity())
             {
                 switch (_userchoice)
                 {
@@ -98,8 +98,8 @@ namespace MagazijnProject.Forms
                     catd.ShowDialog();
                     break;
                 case "Customer Orders":
-                    var selectedCustomerOrder = (CustomerOrderProduct)lbObjects.SelectedItem;
-                    var co = new CustomerOrderDetails(_loggedInEmployee);
+                    var selectedCustomerOrder = (OrderProduct)lbObjects.SelectedItem;
+                    var co = new CustomerOrderDetails(_loggedInEmployee, selectedCustomerOrder);
                     co.ShowDialog();
                     break;
                 case "Supplier Orders":

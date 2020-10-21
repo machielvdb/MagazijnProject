@@ -17,8 +17,8 @@ namespace MagazijnProject
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Employee()
         {
-            this.CustomerOrders = new HashSet<CustomerOrder>();
             this.Logins = new HashSet<Login>();
+            this.Orders = new HashSet<Order>();
             this.Payslips = new HashSet<Payslip>();
         }
     
@@ -33,18 +33,10 @@ namespace MagazijnProject
     
         public virtual Access Access { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CustomerOrder> CustomerOrders { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Login> Logins { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order> Orders { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Payslip> Payslips { get; set; }
-
-        public string FullName
-        {
-            get
-            {
-                return Lastname + " " + Firstname;
-            }
-        }
     }
 }

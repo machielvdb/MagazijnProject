@@ -12,20 +12,27 @@ namespace MagazijnProject
     using System;
     using System.Collections.Generic;
     
-    public partial class SupplierOrder
+    public partial class Order
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SupplierOrder()
+        public Order()
         {
-            this.SupplierOrderProducts = new HashSet<SupplierOrderProduct>();
+            this.OrderProducts = new HashSet<OrderProduct>();
         }
     
-        public int SupplierOrderID { get; set; }
+        public int OrderID { get; set; }
         public System.DateTime DateCreated { get; set; }
         public int EmployeeID { get; set; }
-        public int SupplierID { get; set; }
+        public Nullable<int> SupplierID { get; set; }
+        public Nullable<int> CustomerID { get; set; }
+        public int Amount { get; set; }
     
+        public virtual Customer Customer { get; set; }
+        public virtual Employee Employee { get; set; }
+        public virtual Supplier Supplier { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SupplierOrderProduct> SupplierOrderProducts { get; set; }
+        public virtual ICollection<OrderProduct> OrderProducts { get; set; }
+        public virtual Order Order1 { get; set; }
+        public virtual Order Order2 { get; set; }
     }
 }

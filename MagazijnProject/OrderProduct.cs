@@ -11,22 +11,17 @@ namespace MagazijnProject
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class CustomerOrderProduct
+    using System.Runtime.Remoting.Messaging;
+
+    public partial class OrderProduct
     {
-        public int CustomerOrderProductID { get; set; }
-        public int CustomerOrderID { get; set; }
+        public int OrderProductID { get; set; }
+        public int OrderID { get; set; }
         public int ProductID { get; set; }
     
-        public virtual CustomerOrder CustomerOrder { get; set; }
+        public virtual Order Order { get; set; }
         public virtual Product Product { get; set; }
 
-        public string ProductnameAndAmount
-        {
-            get
-            {
-                return Product.Name + " " + CustomerOrder.Amount;
-            }
-        }
+        public string ProductNameAndAmount => Order.Amount + " " + Product.Name;
     }
 }

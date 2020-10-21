@@ -49,7 +49,7 @@ namespace MagazijnProject.Forms
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    using (var ctx = new WarehouseEntity())
+                    using (var ctx = new WarehouseDBEntity())
                     {
                         var newSupplier = new Supplier()
                         {
@@ -77,7 +77,7 @@ namespace MagazijnProject.Forms
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    using (var ctx = new WarehouseEntity())
+                    using (var ctx = new WarehouseDBEntity())
                     {
                         var getSupplier = ctx.Suppliers.Find(_selectedSupplier.SupplierID);
 

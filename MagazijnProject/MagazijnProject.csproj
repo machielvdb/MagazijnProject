@@ -66,22 +66,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Access.cs">
-      <DependentUpon>WarehouseDataModel.tt</DependentUpon>
+      <DependentUpon>WarehouseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Category.cs">
-      <DependentUpon>WarehouseDataModel.tt</DependentUpon>
+      <DependentUpon>WarehouseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Customer.cs">
-      <DependentUpon>WarehouseDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CustomerOrder.cs">
-      <DependentUpon>WarehouseDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CustomerOrderProduct.cs">
-      <DependentUpon>WarehouseDataModel.tt</DependentUpon>
+      <DependentUpon>WarehouseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Employee.cs">
-      <DependentUpon>WarehouseDataModel.tt</DependentUpon>
+      <DependentUpon>WarehouseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Forms\CategorieDetails.cs">
       <SubType>Form</SubType>
@@ -157,46 +151,45 @@
     </Compile>
     <Compile Include="Hashing.cs" />
     <Compile Include="Login.cs">
-      <DependentUpon>WarehouseDataModel.tt</DependentUpon>
-      <SubType>Form</SubType>
+      <DependentUpon>WarehouseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Month.cs">
-      <DependentUpon>WarehouseDataModel.tt</DependentUpon>
+      <DependentUpon>WarehouseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Order.cs">
+      <DependentUpon>WarehouseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderProduct.cs">
+      <DependentUpon>WarehouseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Payslip.cs">
-      <DependentUpon>WarehouseDataModel.tt</DependentUpon>
+      <DependentUpon>WarehouseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
-      <DependentUpon>WarehouseDataModel.tt</DependentUpon>
+      <DependentUpon>WarehouseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Supplier.cs">
-      <DependentUpon>WarehouseDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SupplierOrder.cs">
-      <DependentUpon>WarehouseDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SupplierOrderProduct.cs">
-      <DependentUpon>WarehouseDataModel.tt</DependentUpon>
+      <DependentUpon>WarehouseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagram.cs">
-      <DependentUpon>WarehouseDataModel.tt</DependentUpon>
+      <DependentUpon>WarehouseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="WarehouseDataModel.Context.cs">
+    <Compile Include="WarehouseModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>WarehouseDataModel.Context.tt</DependentUpon>
+      <DependentUpon>WarehouseModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="WarehouseDataModel.cs">
+    <Compile Include="WarehouseModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>WarehouseDataModel.tt</DependentUpon>
+      <DependentUpon>WarehouseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="WarehouseDataModel.Designer.cs">
+    <Compile Include="WarehouseModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>WarehouseDataModel.edmx</DependentUpon>
+      <DependentUpon>WarehouseModel.edmx</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Forms\CategorieDetails.resx">
       <DependentUpon>CategorieDetails.cs</DependentUpon>
@@ -253,12 +246,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EntityDeploy Include="WarehouseDataModel.edmx">
+    <EntityDeploy Include="WarehouseModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>WarehouseDataModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>WarehouseModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="WarehouseDataModel.edmx.diagram">
-      <DependentUpon>WarehouseDataModel.edmx</DependentUpon>
+    <None Include="WarehouseModel.edmx.diagram">
+      <DependentUpon>WarehouseModel.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -268,15 +261,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="WarehouseDataModel.Context.tt">
+    <Content Include="WarehouseModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>WarehouseDataModel.edmx</DependentUpon>
-      <LastGenOutput>WarehouseDataModel.Context.cs</LastGenOutput>
+      <DependentUpon>WarehouseModel.edmx</DependentUpon>
+      <LastGenOutput>WarehouseModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="WarehouseDataModel.tt">
+    <Content Include="WarehouseModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>WarehouseDataModel.edmx</DependentUpon>
-      <LastGenOutput>WarehouseDataModel.cs</LastGenOutput>
+      <DependentUpon>WarehouseModel.edmx</DependentUpon>
+      <LastGenOutput>WarehouseModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

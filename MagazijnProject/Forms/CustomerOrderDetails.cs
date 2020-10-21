@@ -13,7 +13,16 @@ namespace MagazijnProject.Forms
     public partial class CustomerOrderDetails : Form
     {
         static Employee _loggedInEmployee;
-        static List<CustomerOrderProduct> _orderList = new List<CustomerOrderProduct>();
+        static List<OrderProduct> _orderList = new List<OrderProduct>();
+        static OrderProduct _selectedOrderProduct;
+
+        public CustomerOrderDetails(Employee loggedInEmployee, OrderProduct selectedOrder)
+        {
+            InitializeComponent();
+            CenterToScreen();
+            _loggedInEmployee = loggedInEmployee;
+            _selectedOrderProduct = selectedOrder;
+        }
 
         public CustomerOrderDetails(Employee loggedInEmployee)
         {
@@ -24,7 +33,7 @@ namespace MagazijnProject.Forms
 
         private void OrderDetails_Load(object sender, EventArgs e)
         {
-            using (var ctx = new WarehouseEntity())
+            using (var ctx = new WarehouseDBEntity())
             {
                 var customerList = ctx.Customers.ToList();
                 cbCustomer.DisplayMember = "FullName";
@@ -42,7 +51,7 @@ namespace MagazijnProject.Forms
         {
             var newCustomerOrderProduct = CreateNewCustomerOrderProduct();
             _orderList.Add(newCustomerOrderProduct);
-            lbAdded.DisplayMember = "ProductnameAndAmount";
+            lbAdded.DisplayMember = "ProductNameAndAmount";
             lbAdded.ValueMember = "OrderProductID";
             lbAdded.DataSource = _orderList;
         }
@@ -53,11 +62,11 @@ namespace MagazijnProject.Forms
 
             if (DialogResult == DialogResult.Yes)
             {
-                using (var ctx = new WarehouseEntity())
+                using (var ctx = new WarehouseDBEntity())
                 {
                     foreach (var item in _orderList)
                     {
-                        ctx.CustomerOrderProducts.Add(item);
+                        ctx.OrderProducts.Add(item);
                         ctx.SaveChanges();
                     }
                     MessageBox.Show("Orders saved.");
@@ -66,31 +75,31 @@ namespace MagazijnProject.Forms
             }
         }
 
-        private CustomerOrder CreateNewCustomerOrder()
+        private Order CreateNewCustomerOrder()
         {
-            using (var ctx = new WarehouseEntity())
+            using (var ctx = new WarehouseDBEntity())
             {
-                var newCustomerOrder = new CustomerOrder
+                var newCustomerOrder = new Order
                 {
                     EmployeeID = _loggedInEmployee.EmployeeID,
                     CustomerID = Convert.ToInt32(cbCustomer.SelectedValue),
                     DateCreated = DateTime.Now
                 };
 
-                ctx.CustomerOrders.Add(newCustomerOrder);
+                ctx.Orders.Add(newCustomerOrder);
                 ctx.SaveChanges();
                 return newCustomerOrder;
             }
         }
 
-        private CustomerOrderProduct CreateNewCustomerOrderProduct()
+        private OrderProduct CreateNewCustomerOrderProduct()
         {
             var newCustomerOrder = CreateNewCustomerOrder();
 
-            var newCustomerOrderProduct = new CustomerOrderProduct
+            var newCustomerOrderProduct = new OrderProduct
             {
                 Product = (Product)cbProduct.SelectedItem,
-                CustomerOrderID = newCustomerOrder.CustomerOrderID
+                OrderID = newCustomerOrder.OrderID
             };
             return newCustomerOrderProduct;
         }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c99a9a03a5a341229f211d757effe384" Name="Diagram1">
+        <EntityTypeShape EntityType="WarehouseModel.Access" Width="1.5" PointX="1.5" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WarehouseModel.Category" Width="1.5" PointX="3.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WarehouseModel.Customer" Width="1.5" PointX="0.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WarehouseModel.Employee" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WarehouseModel.Login" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WarehouseModel.Month" Width="1.5" PointX="0.75" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="WarehouseModel.Order" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WarehouseModel.OrderProduct" Width="1.5" PointX="8.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WarehouseModel.Payslip" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WarehouseModel.Product" Width="1.5" PointX="6" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WarehouseModel.Supplier" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WarehouseModel.sysdiagram" Width="1.5" PointX="5.75" PointY="12" IsExpanded="true" />
+        <AssociationConnector Association="WarehouseModel.FK_Employee_Access" ManuallyRouted="false" />
+        <AssociationConnector Association="WarehouseModel.FK_Product_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="WarehouseModel.FK_Order_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="WarehouseModel.FK_Login_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="WarehouseModel.FK_Order_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="WarehouseModel.FK_Payslip_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="WarehouseModel.FK_Payslip_Month" ManuallyRouted="false" />
+        <AssociationConnector Association="WarehouseModel.FK_Order_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="WarehouseModel.FK_OrderProduct_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="WarehouseModel.FK_OrderProduct_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="WarehouseModel.FK_Product_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="WarehouseModel.FK_Order_Order" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

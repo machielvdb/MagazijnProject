@@ -19,3 +19,6 @@ Login en hashing bijna af, passwoordcheck met hashing nog niet correct.
 15/10/2020:
 Login en hashing af. Begonnen aan databeheersysteem voor admin.
 Overzicht van employee's, toevoegen en wijzigen is af.
+
+21/10/2020:
+Wijzigingen aan order tabellen in database ongedaan gemaakt. Orders aanmaken voor klanten herzien.

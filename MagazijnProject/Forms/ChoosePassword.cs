@@ -36,7 +36,7 @@ namespace MagazijnProject.Forms
 
                 if (success)
                 {
-                    using (var ctx = new WarehouseEntity())
+                    using (var ctx = new WarehouseDBEntity())
                     {
                         var login = new Login()
                         {
