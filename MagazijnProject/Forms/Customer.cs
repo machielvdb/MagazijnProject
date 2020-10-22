@@ -7,29 +7,33 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MagazijnProject
+namespace MagazijnProject.Forms
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Order
+    public partial class Customer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Order()
+        public Customer()
         {
-            this.OrderProducts = new HashSet<OrderProduct>();
+            this.Orders = new HashSet<Order>();
         }
     
-        public int OrderID { get; set; }
-        public System.DateTime DateCreated { get; set; }
-        public int EmployeeID { get; set; }
-        public Nullable<int> SupplierID { get; set; }
-        public Nullable<int> CustomerID { get; set; }
+        public int CustomerID { get; set; }
+        public string Firstname { get; set; }
+        public string Lastname { get; set; }
+        public string Address { get; set; }
+        public string Housenumber { get; set; }
+        public string Bus { get; set; }
+        public Nullable<int> ZIP_code { get; set; }
+        public string City { get; set; }
+        public string Phonenumber { get; set; }
+        public string e_mail { get; set; }
+        public Nullable<System.DateTime> JoinDate { get; set; }
+        public string Note { get; set; }
     
-        public virtual Customer Customer { get; set; }
-        public virtual Employee Employee { get; set; }
-        public virtual Supplier Supplier { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderProduct> OrderProducts { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

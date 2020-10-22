@@ -7,12 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MagazijnProject
+namespace MagazijnProject.Forms
 {
     using System;
     using System.Collections.Generic;
-    using System.Runtime;
-
+    
     public partial class Employee
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -39,7 +38,5 @@ namespace MagazijnProject
         public virtual ICollection<Order> Orders { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Payslip> Payslips { get; set; }
-
-        public string FullName => Lastname + " " + Firstname;
     }
 }

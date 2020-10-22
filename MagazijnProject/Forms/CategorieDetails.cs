@@ -43,7 +43,7 @@ namespace MagazijnProject.Forms
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    using (var ctx = new WarehouseDBEntity())
+                    using (var ctx = new WarehouseDataEntity())
                     {
                         var newCategory = new Category()
                         {
@@ -64,7 +64,7 @@ namespace MagazijnProject.Forms
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    using (var ctx = new WarehouseDBEntity())
+                    using (var ctx = new WarehouseDataEntity())
                     {
                         var getCategory = ctx.Categories.Find(_selectedCategory.CategoryID);
                         getCategory.CategoryName = tbName.Text;

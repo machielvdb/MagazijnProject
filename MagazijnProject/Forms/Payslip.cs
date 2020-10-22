@@ -7,17 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MagazijnProject
+namespace MagazijnProject.Forms
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Login
+    public partial class Payslip
     {
-        public int LoginID { get; set; }
-        public Nullable<int> EmployeeID { get; set; }
-        public System.DateTime LastLoggedIn { get; set; }
+        public int PayslipID { get; set; }
+        public int EmployeeID { get; set; }
+        public int MonthID { get; set; }
+        public decimal Seniority { get; set; }
+        public decimal SocialSecurity { get; set; }
+        public decimal WithholdingTax { get; set; }
+        public decimal Gross { get; set; }
+        public decimal Net { get; set; }
     
         public virtual Employee Employee { get; set; }
+        public virtual Month Month { get; set; }
     }
 }

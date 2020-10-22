@@ -35,7 +35,7 @@ namespace MagazijnProject.Forms
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    using (var ctx = new WarehouseDBEntity())
+                    using (var ctx = new WarehouseDataEntity())
                     {
                         var newEmployee = new Employee()
                         {
@@ -60,7 +60,7 @@ namespace MagazijnProject.Forms
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    using (var ctx = new WarehouseDBEntity())
+                    using (var ctx = new WarehouseDataEntity())
                     {
                         var editEmployeeQuery = ctx.Employees.Single(x => x.EmployeeID == _selectedEmployee.EmployeeID);
                         editEmployeeQuery.Firstname = tbFirstname.Text;
@@ -75,7 +75,7 @@ namespace MagazijnProject.Forms
 
         private void EmployeeDetails_Load(object sender, EventArgs e)
         {
-            using (var ctx = new WarehouseDBEntity())
+            using (var ctx = new WarehouseDataEntity())
             {
                 var accesslist = ctx.Accesses.ToList();
                 cbAccess.DisplayMember = "AccessName";

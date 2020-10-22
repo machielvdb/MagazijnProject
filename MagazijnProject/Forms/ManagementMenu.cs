@@ -52,7 +52,7 @@ namespace MagazijnProject.Forms
 
         private void btnOrders_Click(object sender, EventArgs e)
         {
-            var f = new ObjectManagementOverview(btnCustomerOrders.Text, _loggedInEmployee);
+            var f = new CustomerOrdersOverview(_loggedInEmployee);
             f.ShowDialog();
         }
     }

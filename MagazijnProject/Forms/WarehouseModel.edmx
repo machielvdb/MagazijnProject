@@ -54,7 +54,7 @@
             <PropertyRef Name="LoginID" />
           </Key>
           <Property Name="LoginID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="EmployeeID" Type="int" />
+          <Property Name="EmployeeID" Type="int" Nullable="false" />
           <Property Name="LastLoggedIn" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Month">
@@ -150,7 +150,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Login_Employee">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="Login" Type="Self.Login" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
@@ -182,6 +182,18 @@
             </Principal>
             <Dependent Role="Order">
               <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="Order1" Type="Self.Order" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="Order1">
+              <PropertyRef Name="OrderID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -298,6 +310,10 @@
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
+          <AssociationSet Name="FK_Order_Order" Association="Self.FK_Order_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="Order1" EntitySet="Order" />
+          </AssociationSet>
           <AssociationSet Name="FK_Order_Supplier" Association="Self.FK_Order_Supplier">
             <End Role="Supplier" EntitySet="Supplier" />
             <End Role="Order" EntitySet="Order" />
@@ -388,7 +404,7 @@
             <PropertyRef Name="LoginID" />
           </Key>
           <Property Name="LoginID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
           <Property Name="LastLoggedIn" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_Login_Employee" FromRole="Login" ToRole="Employee" />
         </EntityType>
@@ -411,6 +427,8 @@
           <Property Name="CustomerID" Type="Int32" />
           <NavigationProperty Name="Customer" Relationship="Self.FK_Order_Customer" FromRole="Order" ToRole="Customer" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_Order_Employee" FromRole="Order" ToRole="Employee" />
+          <NavigationProperty Name="Order1" Relationship="Self.FK_Order_Order" FromRole="Order" ToRole="Order1" />
+          <NavigationProperty Name="Order2" Relationship="Self.FK_Order_Order" FromRole="Order1" ToRole="Order" />
           <NavigationProperty Name="Supplier" Relationship="Self.FK_Order_Supplier" FromRole="Order" ToRole="Supplier" />
           <NavigationProperty Name="OrderProducts" Relationship="Self.FK_OrderProduct_Order" FromRole="Order" ToRole="OrderProduct" />
         </EntityType>
@@ -523,7 +541,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Login_Employee">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="Login" Type="Self.Login" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
@@ -567,6 +585,18 @@
             </Principal>
             <Dependent Role="Payslip">
               <PropertyRef Name="MonthID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="Order1" Type="Self.Order" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="Order1">
+              <PropertyRef Name="OrderID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -658,6 +688,10 @@
           <AssociationSet Name="FK_Payslip_Month" Association="Self.FK_Payslip_Month">
             <End Role="Month" EntitySet="Months" />
             <End Role="Payslip" EntitySet="Payslips" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Order" Association="Self.FK_Order_Order">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="Order1" EntitySet="Orders" />
           </AssociationSet>
           <AssociationSet Name="FK_Order_Supplier" Association="Self.FK_Order_Supplier">
             <End Role="Supplier" EntitySet="Suppliers" />

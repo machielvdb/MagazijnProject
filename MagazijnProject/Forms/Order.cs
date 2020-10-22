@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MagazijnProject
+namespace MagazijnProject.Forms
 {
     using System;
     using System.Collections.Generic;
@@ -28,6 +28,8 @@ namespace MagazijnProject
     
         public virtual Customer Customer { get; set; }
         public virtual Employee Employee { get; set; }
+        public virtual Order Order1 { get; set; }
+        public virtual Order Order2 { get; set; }
         public virtual Supplier Supplier { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderProduct> OrderProducts { get; set; }

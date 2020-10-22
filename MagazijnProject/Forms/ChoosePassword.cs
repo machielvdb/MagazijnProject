@@ -36,12 +36,12 @@ namespace MagazijnProject.Forms
 
                 if (success)
                 {
-                    using (var ctx = new WarehouseDBEntity())
+                    using (var ctx = new WarehouseDataEntity())
                     {
                         var login = new Login()
                         {
                             EmployeeID = _selectedEmployee.EmployeeID,
-                            Login1 = DateTime.Now
+                            LastLoggedIn = DateTime.Now
                         };
 
                         var employee = ctx.Employees.Single(x => x.EmployeeID == _selectedEmployee.EmployeeID);

@@ -7,39 +7,33 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MagazijnProject
+namespace MagazijnProject.Forms
 {
     using System;
     using System.Collections.Generic;
-    using System.Runtime;
-
-    public partial class Employee
+    
+    public partial class Supplier
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Employee()
+        public Supplier()
         {
-            this.Logins = new HashSet<Login>();
             this.Orders = new HashSet<Order>();
-            this.Payslips = new HashSet<Payslip>();
+            this.Products = new HashSet<Product>();
         }
     
-        public int EmployeeID { get; set; }
-        public int AccessID { get; set; }
-        public string Firstname { get; set; }
-        public string Lastname { get; set; }
-        public System.DateTime EmploymentDate { get; set; }
-        public decimal StartingSalary { get; set; }
-        public string Password { get; set; }
-        public string Salt { get; set; }
+        public int SupplierID { get; set; }
+        public string Name { get; set; }
+        public string Phonenumber { get; set; }
+        public string e_mail { get; set; }
+        public string Address { get; set; }
+        public Nullable<int> HouseNumber { get; set; }
+        public string Bus { get; set; }
+        public Nullable<int> ZIP_Code { get; set; }
+        public string City { get; set; }
     
-        public virtual Access Access { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Login> Logins { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Payslip> Payslips { get; set; }
-
-        public string FullName => Lastname + " " + Firstname;
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

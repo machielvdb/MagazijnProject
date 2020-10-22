@@ -11,8 +11,7 @@ namespace MagazijnProject
 {
     using System;
     using System.Collections.Generic;
-    using System.Runtime.Remoting.Messaging;
-
+    
     public partial class Customer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]

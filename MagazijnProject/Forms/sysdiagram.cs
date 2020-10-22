@@ -7,22 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MagazijnProject
+namespace MagazijnProject.Forms
 {
-    using Microsoft.SqlServer.Server;
     using System;
     using System.Collections.Generic;
     
-    public partial class OrderProduct
+    public partial class sysdiagram
     {
-        public int OrderProductID { get; set; }
-        public int OrderID { get; set; }
-        public int ProductID { get; set; }
-        public int Amount { get; set; }
-    
-        public virtual Order Order { get; set; }
-        public virtual Product Product { get; set; }
-
-        public string ProductNameAndAmount => Product.Name + " x " + Amount; 
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

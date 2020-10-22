@@ -23,7 +23,7 @@ namespace MagazijnProject
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            using (var ctx = new WarehouseDBEntity())
+            using (var ctx = new WarehouseDataEntity())
             {   
                 // Gets the employee ID and references the databases. Lets you choose a password if no previous logins are found.
                 var employeeId = Convert.ToInt32(cbUsers.SelectedValue);
@@ -49,7 +49,7 @@ namespace MagazijnProject
                         var login = new Login()
                         {
                             EmployeeID = employeeId,
-                            Login1 = DateTime.Now
+                            LastLoggedIn = DateTime.Now
                         };
 
                         ctx.Logins.Add(login);
@@ -65,7 +65,7 @@ namespace MagazijnProject
 
         private void Login_Load(object sender, EventArgs e)
         {
-            using (var ctx = new WarehouseDBEntity())
+            using (var ctx = new WarehouseDataEntity())
             {
                 // Gets the accesslevels from the database and binds them to department combobox.
                 var accesslist = ctx.Accesses.ToList();
@@ -77,7 +77,7 @@ namespace MagazijnProject
 
         private void cbDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {
-            using (var ctx = new WarehouseDBEntity())
+            using (var ctx = new WarehouseDataEntity())
             {
                 // Fetches all employees for the selected department.
                 var selectedAccess = Convert.ToInt32(cbDepartment.SelectedValue);
