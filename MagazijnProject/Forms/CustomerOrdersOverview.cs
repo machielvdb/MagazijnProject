@@ -36,10 +36,10 @@ namespace MagazijnProject.Forms
             using (var ctx = new WarehouseDataEntity())
             {
                 var selectedCustomer = (Customer)cbCustomers.SelectedItem;
-                var orderproductlist = ctx.OrderProducts.Where(x => x.Order.CustomerID == selectedCustomer.CustomerID).ToList();
-                lbOrders.DisplayMember = "ProductNameAndAmount";
-                lbOrders.ValueMember = "OrderProductID";
-                lbOrders.DataSource = orderproductlist;
+                var orderlist = ctx.Orders.Where(x => x.CustomerID == selectedCustomer.CustomerID).ToList();
+                lbOrders.DisplayMember = "ShowOrder";
+                lbOrders.ValueMember = "OrderID";
+                lbOrders.DataSource = orderlist;
             }
         }
 
@@ -55,6 +55,22 @@ namespace MagazijnProject.Forms
 
             else
                 MessageBox.Show("Please select a customer.");
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (lbOrders.SelectedItem != null)
+            {
+                var selectedOrder = (Order)lbOrders.SelectedItem;
+                var selectedCustomer = (Customer)cbCustomers.SelectedItem;
+
+                if (selectedCustomer != null && selectedOrder != null)
+                {
+                    var oo = new OrderOverview(_loggedInEmployee, selectedCustomer, selectedOrder);
+                    oo.ShowDialog();
+                }
+            }
+
         }
     }
 }

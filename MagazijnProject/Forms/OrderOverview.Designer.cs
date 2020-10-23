@@ -130,6 +130,7 @@
             this.btnCreate.TabIndex = 10;
             this.btnCreate.Text = "Create Order";
             this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // btnRemove
             // 
@@ -139,6 +140,7 @@
             this.btnRemove.TabIndex = 11;
             this.btnRemove.Text = "<=";
             this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // OrderOverview
             // 
