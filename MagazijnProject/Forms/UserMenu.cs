@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using IronPdf;
 
 namespace MagazijnProject.Forms
 {
     public partial class UserMenu : Form
     {
-        static Employee _loggedInEmployee;
+        private static Employee _loggedInEmployee;
         public UserMenu(Employee loggedInEmployee)
         {
             InitializeComponent();
@@ -56,6 +58,12 @@ namespace MagazijnProject.Forms
                 var f = new WarehouseMenu(_loggedInEmployee);
                 f.ShowDialog();
             }
+        }
+
+        private void btnOverview_Click(object sender, EventArgs e)
+        {
+            var f = new OverviewMenu(_loggedInEmployee);
+            f.ShowDialog();
         }
     }
 }

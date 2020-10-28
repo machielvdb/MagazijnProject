@@ -31,7 +31,7 @@
             this.btnManagement = new System.Windows.Forms.Button();
             this.btnShop = new System.Windows.Forms.Button();
             this.btnWarehouse = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnOverview = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnManagement
@@ -64,21 +64,22 @@
             this.btnWarehouse.UseVisualStyleBackColor = true;
             this.btnWarehouse.Click += new System.EventHandler(this.btnWarehouse_Click);
             // 
-            // button4
+            // btnOverview
             // 
-            this.button4.Location = new System.Drawing.Point(12, 99);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(185, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnOverview.Location = new System.Drawing.Point(12, 99);
+            this.btnOverview.Name = "btnOverview";
+            this.btnOverview.Size = new System.Drawing.Size(185, 23);
+            this.btnOverview.TabIndex = 3;
+            this.btnOverview.Text = "Overview";
+            this.btnOverview.UseVisualStyleBackColor = true;
+            this.btnOverview.Click += new System.EventHandler(this.btnOverview_Click);
             // 
             // UserMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(209, 135);
-            this.Controls.Add(this.button4);
+            this.ClientSize = new System.Drawing.Size(209, 130);
+            this.Controls.Add(this.btnOverview);
             this.Controls.Add(this.btnWarehouse);
             this.Controls.Add(this.btnShop);
             this.Controls.Add(this.btnManagement);
@@ -93,6 +94,6 @@
         private System.Windows.Forms.Button btnManagement;
         private System.Windows.Forms.Button btnShop;
         private System.Windows.Forms.Button btnWarehouse;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnOverview;
     }
 }

@@ -1,20 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml;
+using IronPdf;
 
 namespace MagazijnProject.Forms
 {
     public partial class OrderOverview : Form
     {
-        static Employee _loggedInEmployee;
-        static Order _selectedOrder;
-        static Customer _selectedCustomer;
-        static Supplier _selectedSupplier;
-        static List<SelectedProduct> _selectedProducts = new List<SelectedProduct>();
-        List<int> _productsToRemove = new List<int>();
+        private static Employee _loggedInEmployee;
+        private static Order _selectedOrder;
+        private static Customer _selectedCustomer;
+        private static Supplier _selectedSupplier;
+        private static List<SelectedProduct> _selectedProducts = new List<SelectedProduct>();
+        private List<int> _productsToRemove = new List<int>();
         public OrderOverview(Employee loggedInEmployee, Customer selectedCustomer)
         {
             InitializeComponent();
@@ -243,9 +245,7 @@ namespace MagazijnProject.Forms
                         };
 
                         if (orderProductList.Contains(newOrderProduct))
-                        {
                             continue;
-                        }
 
                         else
                         {
@@ -254,7 +254,13 @@ namespace MagazijnProject.Forms
                         }
                     }
 
-                    MessageBox.Show("Order edited.");
+                    var reactionresult = MessageBox.Show("Order edited, do you wish to print invoice?", "Edited", MessageBoxButtons.YesNo);
+
+                    if (reactionresult == DialogResult.Yes)
+                    {
+
+                    }
+
                     Close();
                 }
             }
