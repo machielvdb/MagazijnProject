@@ -24,10 +24,11 @@ namespace MagazijnProject.Forms
         {
             using (var ctx = new WarehouseDataEntity())
             {
-                var customerList = ctx.Customers.ToList();
-                cbCustomers.DisplayMember = "FullName";
-                cbCustomers.ValueMember = "CustomerID";
-                cbCustomers.DataSource = customerList;
+                    var customerList = ctx.Customers.ToList();
+                    cbCustomers.DataSource = null;
+                    cbCustomers.DisplayMember = "FullName";
+                    cbCustomers.ValueMember = "CustomerID";
+                    cbCustomers.DataSource = customerList;
             }
         }
 
@@ -67,10 +68,9 @@ namespace MagazijnProject.Forms
                 if (selectedCustomer != null && selectedOrder != null)
                 {
                     var oo = new OrderOverview(_loggedInEmployee, selectedCustomer, selectedOrder);
-                    oo.ShowDialog();
+                    oo.Show();
                 }
             }
-
         }
     }
 }

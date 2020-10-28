@@ -33,5 +33,29 @@ namespace MagazijnProject.Forms
                 f.ShowDialog();
             }
         }
+
+        private void btnShop_Click(object sender, EventArgs e)
+        {
+            if (_loggedInEmployee.AccessID != 3)
+                MessageBox.Show("You are not authorized.");
+
+            else
+            {
+                var f = new ShopMenu(_loggedInEmployee);
+                f.ShowDialog();
+            }
+        }
+
+        private void btnWarehouse_Click(object sender, EventArgs e)
+        {
+            if (_loggedInEmployee.AccessID != 2)
+                MessageBox.Show("You are not authorized.");
+
+            else
+            {
+                var f = new WarehouseMenu(_loggedInEmployee);
+                f.ShowDialog();
+            }
+        }
     }
 }

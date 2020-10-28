@@ -91,10 +91,10 @@ namespace MagazijnProject.Forms
                     CategoryID = Convert.ToInt32(cbCategory.SelectedValue),
                     SupplierID = Convert.ToInt32(cbSupplier.SelectedValue),
                     InStock = rbYes.Checked ? true : false,
-                    AmountInStock = int.Parse(tbAmount.Text),
-                    AmountInOrder = int.Parse(tbOrder.Text),
-                    AmountAvailable = int.Parse(tbAmountAvailable.Text),
-                    AmountInBackorder = int.Parse(tbBackorder.Text)
+                    AmountInStock = tbAmount.Text == string.Empty ? 0 : int.Parse(tbAmount.Text),
+                    AmountInOrder = tbOrder.Text == string.Empty ? 0 : int.Parse(tbOrder.Text),
+                    AmountAvailable = tbAmountAvailable.Text == string.Empty ? 0 : int.Parse(tbAmountAvailable.Text),
+                    AmountInBackorder = tbBackorder.Text == string.Empty ? 0 : int.Parse(tbBackorder.Text)
                 };
 
                 using (var ctx = new WarehouseDataEntity())

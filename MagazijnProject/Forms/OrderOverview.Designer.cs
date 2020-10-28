@@ -160,6 +160,7 @@
             this.Controls.Add(this.lblObject);
             this.Name = "OrderOverview";
             this.Text = "OrderOverview";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OrderOverview_FormClosed);
             this.Load += new System.EventHandler(this.OrderOverview_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numAmount)).EndInit();
             this.ResumeLayout(false);

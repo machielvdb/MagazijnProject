@@ -55,5 +55,10 @@ namespace MagazijnProject.Forms
             var f = new CustomerOrdersOverview(_loggedInEmployee);
             f.ShowDialog();
         }
+
+        private void btnSupplierOrders_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

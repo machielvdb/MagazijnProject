@@ -34,7 +34,7 @@
             this.btnEmployees = new System.Windows.Forms.Button();
             this.btnCategories = new System.Windows.Forms.Button();
             this.btnCustomerOrders = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSupplierOrders = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSuppliers
@@ -97,21 +97,22 @@
             this.btnCustomerOrders.UseVisualStyleBackColor = true;
             this.btnCustomerOrders.Click += new System.EventHandler(this.btnOrders_Click);
             // 
-            // button1
+            // btnSupplierOrders
             // 
-            this.button1.Location = new System.Drawing.Point(12, 186);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(185, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Supplier Orders";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSupplierOrders.Location = new System.Drawing.Point(12, 186);
+            this.btnSupplierOrders.Name = "btnSupplierOrders";
+            this.btnSupplierOrders.Size = new System.Drawing.Size(185, 23);
+            this.btnSupplierOrders.TabIndex = 10;
+            this.btnSupplierOrders.Text = "Supplier Orders";
+            this.btnSupplierOrders.UseVisualStyleBackColor = true;
+            this.btnSupplierOrders.Click += new System.EventHandler(this.btnSupplierOrders_Click);
             // 
             // ManagementMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(212, 220);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSupplierOrders);
             this.Controls.Add(this.btnCustomerOrders);
             this.Controls.Add(this.btnCategories);
             this.Controls.Add(this.btnSuppliers);
@@ -132,6 +133,6 @@
         private System.Windows.Forms.Button btnEmployees;
         private System.Windows.Forms.Button btnCategories;
         private System.Windows.Forms.Button btnCustomerOrders;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSupplierOrders;
     }
 }

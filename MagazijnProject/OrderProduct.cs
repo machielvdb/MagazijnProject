@@ -22,7 +22,5 @@ namespace MagazijnProject
     
         public virtual Order Order { get; set; }
         public virtual Product Product { get; set; }
-
-        public string ProductNameAndAmount => Product.Name + " x " + Amount; 
     }
 }
