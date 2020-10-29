@@ -192,7 +192,15 @@ namespace MagazijnProject.Forms
 
                             ctx.OrderProducts.Add(newOrderProduct);
                             ctx.SaveChanges();
-                            MessageBox.Show("Orders created.");
+
+                            var dialogresult = MessageBox.Show("Orders created, do you wish to print the invoice?", "Created", MessageBoxButtons.YesNo);
+
+                            if (dialogresult == DialogResult.Yes)
+                            {
+                                var newInvoice = new Invoice();
+                                newInvoice.GenerateInvoice(newOrder.OrderID);
+                            }
+
                             Close();
                         }
                     }
