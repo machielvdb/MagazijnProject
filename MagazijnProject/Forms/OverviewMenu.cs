@@ -25,5 +25,23 @@ namespace MagazijnProject.Forms
             var f = new StockOverview(_loggedInEmployee);
             f.ShowDialog();
         }
+
+        private void btnOrders_Click(object sender, EventArgs e)
+        {
+            var f = new OrderOverview(_loggedInEmployee);
+            f.ShowDialog();
+        }
+
+        private void btnCustomers_Click(object sender, EventArgs e)
+        {
+            var f = new CustomerOverview(_loggedInEmployee);
+            f.ShowDialog();
+        }
+
+        private void btnSuppliers_Click(object sender, EventArgs e)
+        {
+            var f = new SupplierOverview(_loggedInEmployee);
+            f.ShowDialog();
+        }
     }
 }

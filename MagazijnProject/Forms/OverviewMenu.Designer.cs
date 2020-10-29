@@ -52,6 +52,7 @@
             this.btnOrders.TabIndex = 1;
             this.btnOrders.Text = "Orders";
             this.btnOrders.UseVisualStyleBackColor = true;
+            this.btnOrders.Click += new System.EventHandler(this.btnOrders_Click);
             // 
             // btnCustomers
             // 
@@ -61,6 +62,7 @@
             this.btnCustomers.TabIndex = 2;
             this.btnCustomers.Text = "Customers";
             this.btnCustomers.UseVisualStyleBackColor = true;
+            this.btnCustomers.Click += new System.EventHandler(this.btnCustomers_Click);
             // 
             // btnSuppliers
             // 
@@ -70,6 +72,7 @@
             this.btnSuppliers.TabIndex = 3;
             this.btnSuppliers.Text = "Suppliers";
             this.btnSuppliers.UseVisualStyleBackColor = true;
+            this.btnSuppliers.Click += new System.EventHandler(this.btnSuppliers_Click);
             // 
             // OverviewMenu
             // 

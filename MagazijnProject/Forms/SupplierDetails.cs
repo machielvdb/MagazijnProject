@@ -6,18 +6,28 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Configuration;
 using System.Windows.Forms;
 
 namespace MagazijnProject.Forms
 {
     public partial class SupplierDetails : Form
     {
-        Supplier _selectedSupplier;
+        private static Supplier _selectedSupplier;
+        private static bool _overview = false;
         public SupplierDetails(Supplier selectedSupplier)
         {
             InitializeComponent();
             CenterToScreen();
             _selectedSupplier = selectedSupplier;
+        }
+
+        public SupplierDetails(Supplier selectedSupplier, bool overview)
+        {
+            InitializeComponent();
+            CenterToScreen();
+            _selectedSupplier = selectedSupplier;
+            _overview = overview;
         }
 
         public SupplierDetails()
@@ -38,6 +48,20 @@ namespace MagazijnProject.Forms
                 tbBus.Text = _selectedSupplier.Bus;
                 tbZIP.Text = Convert.ToString(_selectedSupplier.ZIP_Code);
                 tbCity.Text = _selectedSupplier.City;
+            }
+
+            if (_overview)
+            {
+                btnConfirm.Visible = false;
+                tbName.Enabled = false;
+                tbPhone.Enabled = false;
+                tbEmail.Enabled = false;
+                tbAddress.Enabled = false;
+                tbName.Enabled = false;
+                tbNumber.Enabled = false;
+                tbBus.Enabled = false;
+                tbZIP.Enabled = false;
+                tbCity.Enabled = false;
             }
         }
 

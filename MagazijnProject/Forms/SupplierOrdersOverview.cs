@@ -38,7 +38,7 @@ namespace MagazijnProject.Forms
 
             if (selectedSupplier != null)
             {
-                var oo = new OrderOverview(_loggedInEmployee, selectedSupplier);
+                var oo = new OrderCreation(_loggedInEmployee, selectedSupplier);
                 oo.ShowDialog();
             }
 
@@ -55,7 +55,7 @@ namespace MagazijnProject.Forms
 
                 if (selectedSupplier != null && selectedOrder != null)
                 {
-                    var oo = new OrderOverview(_loggedInEmployee, selectedSupplier, selectedOrder);
+                    var oo = new OrderCreation(_loggedInEmployee, selectedSupplier, selectedOrder);
                     oo.Show();
                 }
             }
@@ -67,6 +67,7 @@ namespace MagazijnProject.Forms
             {
                 var selectedSupplier = (Supplier)cbSuppliers.SelectedItem;
                 var orderlist = ctx.Orders.Where(x => x.SupplierID == selectedSupplier.SupplierID).ToList();
+                lbOrders.DataSource = null;
                 lbOrders.DisplayMember = "ShowOrder";
                 lbOrders.ValueMember = "OrderID";
                 lbOrders.DataSource = orderlist;

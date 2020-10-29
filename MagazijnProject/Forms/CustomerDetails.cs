@@ -12,12 +12,22 @@ namespace MagazijnProject.Forms
 {
     public partial class CustomerDetails : Form
     {
-        Customer _selectedCustomer;
+        private static Customer _selectedCustomer;
+        private static bool _overview = false;
+
         public CustomerDetails(Customer selectedCustomer)
         {
             InitializeComponent();
             CenterToScreen();
             _selectedCustomer = selectedCustomer;
+        }
+
+        public CustomerDetails(Customer selectedCustomer, bool overview)
+        {
+            InitializeComponent();
+            CenterToScreen();
+            _selectedCustomer = selectedCustomer;
+            _overview = overview;
         }
 
         public CustomerDetails()
@@ -40,6 +50,22 @@ namespace MagazijnProject.Forms
                 tbPhone.Text = _selectedCustomer.Phonenumber;
                 tbemail.Text = _selectedCustomer.e_mail;
                 tbNote.Text = _selectedCustomer.Note;
+            }
+
+            if (_overview)
+            {
+                tbFirstname.Enabled = false;
+                tbLastname.Enabled = false;
+                tbAddress.Enabled = false;
+                tbNumber.Enabled = false;
+                tbBus.Enabled = false;
+                tbZIP.Enabled = false;
+                tbCity.Enabled = false;
+                tbPhone.Enabled = false;
+                tbemail.Enabled = false;
+                tbNumber.Enabled = false;
+                tbNote.Enabled = false;
+                btnConfirm.Visible = false;
             }
         }
 

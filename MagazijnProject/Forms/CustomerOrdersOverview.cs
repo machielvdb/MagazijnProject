@@ -50,7 +50,7 @@ namespace MagazijnProject.Forms
 
             if (selectedCustomer != null)
             {
-                var oo = new OrderOverview(_loggedInEmployee, selectedCustomer);
+                var oo = new OrderCreation(_loggedInEmployee, selectedCustomer);
                 oo.ShowDialog();
             }
 
@@ -67,7 +67,7 @@ namespace MagazijnProject.Forms
 
                 if (selectedCustomer != null && selectedOrder != null)
                 {
-                    var oo = new OrderOverview(_loggedInEmployee, selectedCustomer, selectedOrder);
+                    var oo = new OrderCreation(_loggedInEmployee, selectedCustomer, selectedOrder);
                     oo.Show();
                 }
             }

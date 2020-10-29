@@ -39,12 +39,19 @@ namespace MagazijnProject.Forms
 
             using (var ctx = new WarehouseDataEntity())
             {
-                var productlist = ctx.Products.Where(x => x.Category == selectedCategory).ToList();
+                var productlist = ctx.Products.Where(x => x.Category.CategoryID == selectedCategory.CategoryID).ToList();
                 lbProducts.DataSource = null;
                 lbProducts.DisplayMember = "Name";
                 lbProducts.ValueMember = "ProductID";
                 lbProducts.DataSource = productlist;
             }
+        }
+
+        private void btnDetails_Click(object sender, EventArgs e)
+        {
+            var selectedproduct = (Product)lbProducts.SelectedItem;
+            var f = new StockDetails(selectedproduct);
+            f.ShowDialog();
         }
     }
 }
