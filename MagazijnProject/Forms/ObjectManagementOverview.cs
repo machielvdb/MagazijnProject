@@ -138,5 +138,10 @@ namespace MagazijnProject.Forms
                     break;
             }
         }
+
+        private void ObjectManagementOverview_Activated(object sender, EventArgs e)
+        {
+            ObjectManagementOverview_Load(sender, e);
+        }
     }
 }

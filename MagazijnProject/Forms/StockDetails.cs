@@ -42,30 +42,19 @@ namespace MagazijnProject.Forms
                     FillCategoryBox();
                     FillSupplierBox();
 
+                    cbTax.Text = _selectedProduct.Tax.ToString();
+
                     if (_selectedProduct.InStock)
                     {
                         rbYes.Checked = true;
                         tbAmount.Text = _selectedProduct.AmountInStock.ToString();
-                        tbAmountAvailable.Text = _selectedProduct.AmountAvailable.ToString();
-                        tbOrder.Text = _selectedProduct.AmountInOrder.ToString();
-
-                        var isNull = string.IsNullOrEmpty(_selectedProduct.AmountInBackorder.ToString());
-                        if (isNull)
-                        {
-                            tbBackorder.Text = "0";
-                        }
-
-                        else
-                            tbBackorder.Text = _selectedProduct.AmountInBackorder.ToString();
                     }
 
                     else
                     {
                         rbNo.Checked = true;
                         tbAmount.Enabled = false;
-                        tbAmountAvailable.Enabled = false;
-                        tbOrder.Enabled = false;
-                        tbBackorder.Enabled = false;
+
                     }
                 }
             }
@@ -92,9 +81,6 @@ namespace MagazijnProject.Forms
                     SupplierID = Convert.ToInt32(cbSupplier.SelectedValue),
                     InStock = rbYes.Checked ? true : false,
                     AmountInStock = tbAmount.Text == string.Empty ? 0 : int.Parse(tbAmount.Text),
-                    AmountInOrder = tbOrder.Text == string.Empty ? 0 : int.Parse(tbOrder.Text),
-                    AmountAvailable = tbAmountAvailable.Text == string.Empty ? 0 : int.Parse(tbAmountAvailable.Text),
-                    AmountInBackorder = tbBackorder.Text == string.Empty ? 0 : int.Parse(tbBackorder.Text)
                 };
 
                 using (var ctx = new WarehouseDataEntity())
@@ -131,10 +117,6 @@ namespace MagazijnProject.Forms
                             productToEdit.CategoryID = Convert.ToInt32(cbCategory.SelectedValue);
                             productToEdit.SupplierID = Convert.ToInt32(cbSupplier.SelectedValue);
                             productToEdit.InStock = rbYes.Checked ? true : false;
-                            productToEdit.AmountInStock = int.Parse(tbAmount.Text);
-                            productToEdit.AmountInOrder = int.Parse(tbOrder.Text);
-                            productToEdit.AmountAvailable = int.Parse(tbAmountAvailable.Text);
-                            productToEdit.AmountInBackorder = int.Parse(tbBackorder.Text);
                             ctx.SaveChanges();
                             Close();
                         }
@@ -146,20 +128,10 @@ namespace MagazijnProject.Forms
         private void rbYes_CheckedChanged(object sender, EventArgs e)
         {
             if (rbYes.Checked)
-            {
                 tbAmount.Enabled = true;
-                tbAmountAvailable.Enabled = true;
-                tbOrder.Enabled = true;
-                tbBackorder.Enabled = true;
-            }
 
             else
-            {
                 tbAmount.Enabled = false;
-                tbAmountAvailable.Enabled = false;
-                tbOrder.Enabled = false;
-                tbBackorder.Enabled = false;
-            }
         }
 
         private void FillTaxBox()

@@ -71,6 +71,7 @@
             this.Controls.Add(this.lbObjects);
             this.Name = "ObjectManagementOverview";
             this.Text = "ObjectManagementOverview";
+            this.Activated += new System.EventHandler(this.ObjectManagementOverview_Activated);
             this.Load += new System.EventHandler(this.ObjectManagementOverview_Load);
             this.ResumeLayout(false);
 

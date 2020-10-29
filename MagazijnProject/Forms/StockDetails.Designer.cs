@@ -39,12 +39,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.tbAmount = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.tbAmountAvailable = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.tbOrder = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.tbBackorder = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbNo = new System.Windows.Forms.RadioButton();
             this.rbYes = new System.Windows.Forms.RadioButton();
@@ -132,7 +126,7 @@
             // 
             // tbAmount
             // 
-            this.tbAmount.Location = new System.Drawing.Point(324, 58);
+            this.tbAmount.Location = new System.Drawing.Point(276, 58);
             this.tbAmount.Name = "tbAmount";
             this.tbAmount.Size = new System.Drawing.Size(121, 20);
             this.tbAmount.TabIndex = 17;
@@ -145,54 +139,6 @@
             this.label9.Size = new System.Drawing.Size(46, 13);
             this.label9.TabIndex = 16;
             this.label9.Text = "Amount:";
-            // 
-            // tbAmountAvailable
-            // 
-            this.tbAmountAvailable.Location = new System.Drawing.Point(324, 84);
-            this.tbAmountAvailable.Name = "tbAmountAvailable";
-            this.tbAmountAvailable.Size = new System.Drawing.Size(121, 20);
-            this.tbAmountAvailable.TabIndex = 19;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(224, 113);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(46, 13);
-            this.label10.TabIndex = 18;
-            this.label10.Text = "In order:";
-            // 
-            // tbOrder
-            // 
-            this.tbOrder.Location = new System.Drawing.Point(324, 110);
-            this.tbOrder.Name = "tbOrder";
-            this.tbOrder.Size = new System.Drawing.Size(121, 20);
-            this.tbOrder.TabIndex = 21;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(224, 139);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(70, 13);
-            this.label11.TabIndex = 20;
-            this.label11.Text = "In backorder:";
-            // 
-            // tbBackorder
-            // 
-            this.tbBackorder.Location = new System.Drawing.Point(324, 136);
-            this.tbBackorder.Name = "tbBackorder";
-            this.tbBackorder.Size = new System.Drawing.Size(121, 20);
-            this.tbBackorder.TabIndex = 23;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(224, 87);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(91, 13);
-            this.label12.TabIndex = 22;
-            this.label12.Text = "Amount available:";
             // 
             // groupBox1
             // 
@@ -248,9 +194,9 @@
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(324, 162);
+            this.btnConfirm.Location = new System.Drawing.Point(227, 84);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(121, 23);
+            this.btnConfirm.Size = new System.Drawing.Size(170, 73);
             this.btnConfirm.TabIndex = 27;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
@@ -269,18 +215,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(462, 196);
+            this.ClientSize = new System.Drawing.Size(406, 170);
             this.Controls.Add(this.cbSupplier);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.cbCategory);
             this.Controls.Add(this.cbTax);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.tbBackorder);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.tbOrder);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.tbAmountAvailable);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.tbAmount);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
@@ -315,12 +255,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbAmount;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox tbAmountAvailable;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox tbOrder;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox tbBackorder;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rbNo;
         private System.Windows.Forms.RadioButton rbYes;
