@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Xml;
 using IronPdf;
+using MagazijnProject.Classes;
 
 namespace MagazijnProject.Forms
 {
@@ -219,7 +220,13 @@ namespace MagazijnProject.Forms
 
                             ctx.OrderProducts.Add(newOrderProduct);
                             ctx.SaveChanges();
-                            MessageBox.Show("Orders created.");
+                            var reactionresult = MessageBox.Show("Order created, do you wish to print the invoice?", "Created", MessageBoxButtons.YesNo);
+
+                            if (reactionresult == DialogResult.Yes)
+                            {
+                                var newInvoice = new Invoice();
+                                newInvoice.GenerateInvoice(newOrder.OrderID);
+                            }
                             Close();
                         }
                     }
@@ -254,8 +261,14 @@ namespace MagazijnProject.Forms
                             ctx.SaveChanges();
                         }
                     }
+                    var reactionresult = MessageBox.Show("Order edited, do you wish to print the invoice?", "Edited", MessageBoxButtons.YesNo);
 
-                    var reactionresult = MessageBox.Show("Order edited");
+                    if (reactionresult == DialogResult.Yes)
+                    {
+                        var newInvoice = new Invoice();
+                        newInvoice.GenerateInvoice(editOrder.OrderID);
+                    }
+
                     Close();
                 }
             }

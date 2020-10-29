@@ -51,6 +51,10 @@
     <Reference Include="Konscious.Security.Cryptography.Blake2, Version=1.0.9.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Konscious.Security.Cryptography.Blake2.1.0.9\lib\net46\Konscious.Security.Cryptography.Blake2.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -79,7 +83,6 @@
       <DependentUpon>WarehouseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Classes\Invoice.cs" />
-    <Compile Include="Classes\InvoicePosition.cs" />
     <Compile Include="Customer.cs">
       <DependentUpon>WarehouseModel.tt</DependentUpon>
     </Compile>
@@ -366,8 +369,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Templates\Invoice.css" />
-    <Content Include="Templates\Invoice.html" />
     <Content Include="WarehouseModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>WarehouseModel.edmx</DependentUpon>
