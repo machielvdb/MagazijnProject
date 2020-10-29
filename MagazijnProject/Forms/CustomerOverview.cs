@@ -22,7 +22,7 @@ namespace MagazijnProject.Forms
 
         private void CustomerOverview_Load(object sender, EventArgs e)
         {
-            if (_loggedInEmployee.AccessID == 3)
+            if (_loggedInEmployee.AccessID == 3 || _loggedInEmployee.AccessID == 1)
             {
                 using (var ctx = new WarehouseDataEntity())
                 {

@@ -261,14 +261,8 @@ namespace MagazijnProject.Forms
                             ctx.SaveChanges();
                         }
                     }
-                    var reactionresult = MessageBox.Show("Order edited, do you wish to print the invoice?", "Edited", MessageBoxButtons.YesNo);
 
-                    if (reactionresult == DialogResult.Yes)
-                    {
-                        var newInvoice = new Invoice();
-                        newInvoice.GenerateInvoice(editOrder.OrderID);
-                    }
-
+                    MessageBox.Show("Order edited", "Edited");
                     Close();
                 }
             }

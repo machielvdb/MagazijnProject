@@ -34,8 +34,8 @@ namespace MagazijnProject.Classes
                     headerRange.Fields.Add(headerRange, Microsoft.Office.Interop.Word.WdFieldType.wdFieldPage);
                     headerRange.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
                     headerRange.Font.ColorIndex = Microsoft.Office.Interop.Word.WdColorIndex.wdBlue;
-                    headerRange.Font.Size = 10;
-                    headerRange.Text = "Header text goes here";
+                    headerRange.Font.Size = 25;
+                    headerRange.Text = "Naam";
                 }
 
                 //Add the footers into the document  
@@ -50,8 +50,8 @@ namespace MagazijnProject.Classes
                 }
 
                 //adding text to document  
-                document.Content.SetRange(0, 0);
-                document.Content.Text = "This is test document " + Environment.NewLine;
+                //document.Content.SetRange(0, 0);
+                //document.Content.Text = "This is test document " + Environment.NewLine;
 
                 //Add paragraph with Heading 1 style  
                 Microsoft.Office.Interop.Word.Paragraph para1 = document.Content.Paragraphs.Add(ref missing);

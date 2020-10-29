@@ -133,6 +133,8 @@ namespace MagazijnProject.Forms
                     cod.ShowDialog();
                     break;
                 case "Supplier Orders":
+                    var sod = new SupplierOrdersOverview(_loggedInEmployee);
+                    sod.ShowDialog();
                     break;
             }
         }
